@@ -15,7 +15,7 @@ const Home: NextPage = () => {
 
       <main className={styles.main}>
         <h1>
-      <Link href={'./morepage/nextPage'} >Link 1</Link>
+      <Link href={'./morepage/nextPage'} className='text-blue-700' >Link 1</Link>
       </h1>
       <button onClick={()=>{
 
