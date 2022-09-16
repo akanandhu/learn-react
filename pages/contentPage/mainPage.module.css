@@ -1,0 +1,239 @@
+.bodyContainer{
+    display: flex;
+    width: 100%;
+    height: 930px;
+    background-color: grey;
+    justify-content: center;
+}
+.boxContainer{
+    background-color: white;
+    width: 414px;
+    display: grid;
+    grid-template-rows: 456px 148px 318px;
+}
+.cardDetail{
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 1;
+    margin-top: 10px;
+}
+.cardDetail h1 {
+    font-size: small;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: bold;
+    padding-left: 20px;
+    
+}
+.cardDetail p{
+    
+    
+}
+.cardSelection{
+    display: grid;
+    grid-template-rows: 1fr 3fr 1fr 3fr 5fr;
+}
+.colours{
+    display: flex;
+    flex-direction: row;
+    row-gap: 18px;
+    
+
+}
+.colorBox{
+    height: 52px;
+    width: 52px;
+    border-radius: 50%;
+    background-color: black;
+    margin-left: 10px;
+}
+.sizes{
+    display: flex;
+    flex-direction: row;
+}
+.sizeBox{
+    height: 52px;
+    width: 52px;
+    border-radius: 50%;
+    margin-left: 16px;
+    text-align: center;
+    text-justify: center;
+    background: #F1F1F1;
+    border: 3px solid #FFFFFF;
+    box-shadow: 0px 0px 8px 3px rgba(0, 0, 0, 0.1);
+    font-weight: 550;
+    
+}
+.cta{
+    display: flex;
+    flex-direction: row;
+    margin: 7px;
+    justify-content: center;
+    align-items: center;
+    
+    
+}
+.cta button{
+    background: #2F2F85;
+    color: white;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    width: 300px;
+    height: 62px;
+    padding-top: 16px;
+    padding-left: 16px;
+    padding-bottom: 16px;
+    padding-right: 16px;
+    margin-left: 10px;
+    margin-right: 16px;
+    border-radius: 12px;
+    border-width: 0;
+    font-weight: bolder;
+    font-size: 18px;
+}
+.loveRound{
+    width: 62px;
+height: 62px;
+
+
+background: #FFFFFF;
+box-shadow: 0px 0px 8px 3px rgba(0, 0, 0, 0.1);
+border-radius: 50%;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+#orange{
+    background: #FF9F69;
+    z-index: 1;
+}
+#pink{
+    
+background: #F387C8;
+}
+#black{
+    background: #292D30;
+}
+#blue{
+    background: #522CBF;
+}
+#grey{
+    background: #666268;
+    border: 3px solid #FFFFFF;
+    box-shadow: 0px 0px 8px 3px rgba(0, 0, 0, 0.1);
+}
+.sizeText{
+    width: 32px;
+height: 34px;
+font-style: normal;
+font-weight: 600;
+font-size: 16px;
+line-height: 34px;
+margin-left: 16px;
+display: flex;
+align-items: center;
+letter-spacing: -0.5px;
+font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+color: #7E7B7B;
+}
+.colourText{
+    width: 60px;
+height: 34px;
+font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+font-style: normal;
+font-weight: 600;
+font-size: 16px;
+line-height: 34px;
+display: flex;
+align-items: center;
+letter-spacing: -0.5px;
+margin-left: 16px;
+color: #7E7B7B;
+
+}
+.jacketText{
+    width: 66px;
+height: 22px;
+font-family: 'Montserrat';
+font-style: normal;
+font-weight: 400;
+font-size: 18px;
+line-height: 34px;
+display: flex;
+align-items: center;
+letter-spacing: -0.5px;
+margin-left: 22px;
+
+color: #413F3F;
+}
+.priceList{
+    display: flex;
+    flex-direction: row;
+    column-gap: 15px;
+    margin-left: 16px;
+}
+.offer{
+    text-decoration: gree;
+    z-index: 1;
+}
+.heading{
+    display: flex;
+    align-items: center;
+    column-gap: 5px;
+    font-size: large;
+    height: 22px;
+}
+.lowRate{
+    text-decoration: line-through;
+    color: grey;
+}
+.highRate{
+    color: black;
+    font-weight: 600;
+
+}
+.offer{
+    width: 55px;
+height: 22px;
+font-style: normal;
+font-weight: 400;
+font-size: 15px;
+line-height: 34px;
+
+display: flex;
+align-items: center;
+letter-spacing: -0.5px;
+
+color: #4BB649;
+}
+.star{
+    padding-left: 15px ;
+    display: flex;
+    flex-direction: row;
+    
+    
+}
+.stars {
+    height: 16px;
+    width: 16px;
+    
+
+}
+.love{
+    height: 39;
+    width: 39;
+}
+.dots{
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   margin-bottom: 10px;
+}
+.backButton{
+    border-radius: 50%;
+    width: 34px;
+    height: 34px;
+    background: rgba(255, 255, 255, 0.44);
+    position: relative;
+    
+
+}
