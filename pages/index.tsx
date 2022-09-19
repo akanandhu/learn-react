@@ -14,8 +14,8 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
-        <h1>
-      <Link href={'./morepage/nextPage'} className='text-blue-700' >Link 1</Link>
+        <h1 className='text-blue-700'>
+      <Link href={'./morepage/nextPage'}  >Link 1</Link>
       </h1>
       <button onClick={()=>{
 
@@ -23,7 +23,30 @@ const Home: NextPage = () => {
 
       <h3 className='text-red-500'>Content<Link href={'./contentPage/mainPage'}>Page </Link></h3>
       <h3>Tailwind Css <Link href={'./content2/content2'}> Content Page  </Link></h3>
-      <h3 className='text-red-800'> Trail</h3>
+      <h3 className='text-red-800'><Link href={'./login/loginPage'}>Login Page</Link></h3>
+      
+      {/* <div className='h-[200px] w-[550px] bg-black flex text-white text-center justify-center  '>
+        <div className='grid grid-flow-col grid-cols-4 grid-rows-1  w-[100%]'>
+        <button className='h-[100px] w-[100px] bg-white text-black ml-5 mt-5 rounded-xl'>1</button>
+        <button className='h-[100px] w-[100px] bg-white text-black ml-5 mt-5 rounded-xl'>2</button>
+        <button className='h-[100px] w-[100px] bg-white text-black ml-5 mt-5 rounded-xl'>3</button>
+        <button className='h-[100px] w-[100px] bg-white text-black ml-5 mt-5 rounded-xl'>4</button>
+        </div>
+        
+        </div>
+
+        <div className='h-[200px] w-[550px] bg-black flex text-white text-center justify-center '>
+          <div className='grid grid-flow-col grid-cols-4 grid-rows-1  w-[100%]'>
+        <button className='h-[100px] w-[100px] bg-white text-black ml-5 mt-5 rounded-xl'>5</button>
+        <button className='h-[100px] w-[100px] bg-white text-black ml-5 mt-5 rounded-xl'>6</button>
+        <button className='h-[100px] w-[100px] bg-white text-black ml-5 mt-5 rounded-xl'>7</button>
+        <button className='h-[100px] w-[100px] bg-white text-black ml-5 mt-5 rounded-xl'>8</button>
+        </div>
+        
+        </div> */}
+      
+
+      
       </main>
 
       

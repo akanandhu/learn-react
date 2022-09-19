@@ -19,6 +19,9 @@ module.exports = {
       "color5" : "#666268" ,
       "buttoncolor" : "#F1F1F1",
       "bluebutton" : "#2F2F85",
+      "loginbutton" : "#5500C2",
+      "orangeBG" : "#F4BA58",
+      "borderColor" : "#B9B4B4",
 
     },
 
