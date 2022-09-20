@@ -5,9 +5,9 @@ import Image from 'next/image';
 function loginPage() {
   return (
     <div className=' flex flex-col lg:flex-row md:flex-row h-[550px] w-[100%]  md:flex md:h-[930px] md:w-[100%] lg:flex lg:h-[930px] lg:w-[100%]'>
-        <div className=' mb-24 bg-white h-[100%] w-[100%] content-center flex flex-row  lg:bg-orangeBG lg:h-[100%] lg:w-[50%] lg:flex lg:justify-center lg:content-center md:bg-greenBG sm:h-[100%] sm:w-[50%] '>
+        <div className=' mb-28 bg-white h-[100%] w-[100%] content-center flex flex-row  lg:bg-orangeBG lg:h-[100%] lg:w-[50%] lg:flex lg:justify-center lg:content-center md:bg-greenBG sm:h-[100%] sm:w-[50%] '>
             <div className=' h-[200px] w-[100%] content-center ml-16 mt-5   lg:h-[700px] lg:w-[700px] lg:content-center lg:ml-8 lg:align-middle lg:mt-14 sm:h-[100%] sm:w-[100%] sm:ml-8 sm:mt-14  '> 
-            <Image src={student}  className=' object-fill '/>
+            <Image src={student}  className=' object-scale-down '/>
             </div>
         </div>
         <div className= 'h-[100%] w-[100%] flex justify-center flex-1 lg:bg-white lg:h-[100%] lg:w-[50%] md:w-[50%]  lg:flex lg:justify-center lg:flex-1 sm:bg-white sm:h-[100%] sm:w-[50%] sm:flex sm:justify-center sm:flex-1'>
