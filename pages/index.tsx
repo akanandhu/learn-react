@@ -24,6 +24,7 @@ const Home: NextPage = () => {
       <h3 className='text-red-500'>Content<Link href={'./contentPage/mainPage'}>Page </Link></h3>
       <h3>Tailwind Css <Link href={'./content2/content2'}> Content Page  </Link></h3>
       <h3 className='text-red-800'><Link href={'./login/loginPage'}>Login Page</Link></h3>
+      <h3><Link href={'./signup/signUp'}>SignUp Page</Link></h3>
       
       {/* <div className='h-[200px] w-[550px] bg-black flex text-white text-center justify-center  '>
         <div className='grid grid-flow-col grid-cols-4 grid-rows-1  w-[100%]'>
