@@ -26,6 +26,9 @@ const Home: NextPage = () => {
   const sixthProject = () =>{
     router.push('/signup/signUp');
   } 
+  const seventhProject = () =>{
+    router.push('/otppage/otpPage')
+  } 
   return (
     <div className={styles.container}>
       <Head>
@@ -61,7 +64,7 @@ const Home: NextPage = () => {
           <div className='grid grid-flow-col grid-cols-4 grid-rows-1  w-[100%]'>
         <button className='h-[100px] w-[100px] bg-white text-black ml-5 mt-5 rounded-xl' onClick={fifthProject}>5</button>
         <button className='h-[100px] w-[100px] bg-white text-black ml-5 mt-5 rounded-xl ' onClick={sixthProject}>6</button>
-        <button className='h-[100px] w-[100px] bg-white text-black ml-5 mt-5 rounded-xl'>7</button>
+        <button className='h-[100px] w-[100px] bg-white text-black ml-5 mt-5 rounded-xl ' onClick={seventhProject}>7</button>
         <button className='h-[100px] w-[100px] bg-white text-black ml-5 mt-5 rounded-xl'>8</button>
         </div>
         
