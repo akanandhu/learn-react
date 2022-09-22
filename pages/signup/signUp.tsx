@@ -15,7 +15,7 @@ function signUp() {
         <div className=' mt-20 ml-24 flex justify-center  md:ml-24 md:bg-white md:h-[100%] md:w-[50%] md:justify-center  md:flex lg:bg-white lg:h-[100%] lg:w-[50%] lg:justify-center  lg:flex'>
         <form className=' justify-center  md:h-[500px] md:w-[500px] md:flex md:flex-col md:justify-center lg:h-[579px] lg:w-[517px] lg:flex lg:flex-col lg:justify-center '>
            <div className='flex flex-col relative '>
-            <label className="text-3xl mb-4 font-semibold lg:text-2xl lg:mb-5 lg:font-semibold md:text-3xl md:mb-5 md:font-semibold" > Sign Up </label>
+            <label className="text-3xl mb-4 font-semibold lg:text-2xl lg:mb-5 lg:font-semibold md:text-3xl md:mb-5 md:font-semibold font-mont" > Sign Up </label>
             <input placeholder='Phone number' type='number' className='lg: mb-5 w-[523px] h-[56px] border-[2px] rounded-[10px] placeholder:px-4'></input>
             <input placeholder='Student name' className='mb-5 w-[523px] h-[56px] border-[2px] rounded-[10px] placeholder:px-4'></input>
             <input placeholder='Student Email'  className='mb-5 w-[523px] h-[56px] border-[2px] rounded-[10px] placeholder:px-4'></input>
