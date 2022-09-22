@@ -1,6 +1,7 @@
 import React from 'react'
 import student from '/public/images/student.png';
 import Image from 'next/image';
+import Signin from '../../components/Signin';
 
 function loginPage() {
   return (
@@ -12,7 +13,7 @@ function loginPage() {
       </div>
 
       <div className='h-full w-[46%] bg-white'>
-        
+        <Signin/>
       
       </div>
 

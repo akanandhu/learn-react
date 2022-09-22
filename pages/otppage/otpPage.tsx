@@ -12,9 +12,9 @@ function otpPage() {
 
             </div>
         </div>
-        <div className='w-[100%] flex justify-center pt-[5%] lg:w-[44%] lg:h-[100%] lg:flex lg:justify-center lg:align-middle lg:pt-[10%] md:w-[44%] md:h-[100%] md:flex md:justify-center md:pt-[20%]  '>
-        <div className='w-[100%] lg:w-[600px] lg:h-[80%]  '>
-        <div className='flex justify-center lg:flex lg:justify-center lg:align-middle  lg:w-[100%]   '>
+        <div className=' w-[100%] flex justify-center pt-[5%] lg:w-[44%] lg:h-[100%] lg:flex lg:justify-center lg:align-middle lg:pt-[10%] md:w-[44%] md:h-[100%] md:flex md:justify-center md:pt-[20%]  '>
+        <div className=' w-[100%] lg:w-[600px] lg:h-[80%]  '>
+        <div className=' flex justify-center lg:flex lg:justify-center lg:align-middle  lg:w-[100%]   '>
            
             <Otp/>
             
