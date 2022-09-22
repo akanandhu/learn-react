@@ -5,16 +5,16 @@ import study from '/public/images/study.png'
 
 function otpPage() {
   return (
-    <div className='w-screen h-[100%] flex ' >
-        <div className='w-[56%] h-[100%] bg-pinkBG '>
-            <div className='pl-[135px] pr-[95px] pt-[200px] pb-[192px]'>
+    <div className='w-screen h-screen lg:w-screen lg:h-[100%] md:h-screen md:w-screen md:flex lg:flex lg:flex-row md:flex-row flex flex-col ' >
+        <div className='lg:w-[56%] lg:h-[100%] md:h-[100%] bg-pinkBG w-[100%] h-[100%]'>
+            <div className=' lg:pl-[135px] lg:pr-[95px] lg:pt-[200px] lg:pb-[192px] md:pl-[5%] md:pr-[10%] pt-[18%] md:pt-[38%]  '>
                 <Image src={study} width={811} height={589} className='object-scale-down' />
 
             </div>
         </div>
-        <div className='w-[44%] h-[100%] flex justify-center align-middle pt-[10%]  '>
-        <div className='w-[600px] h-[80%]  '>
-        <div className=' flex justify-center align-middle  w-[100%]   '>
+        <div className='w-[100%] flex justify-center pt-[5%] lg:w-[44%] lg:h-[100%] lg:flex lg:justify-center lg:align-middle lg:pt-[10%] md:w-[44%] md:h-[100%] md:flex md:justify-center md:pt-[20%]  '>
+        <div className='w-[100%] lg:w-[600px] lg:h-[80%]  '>
+        <div className='flex justify-center lg:flex lg:justify-center lg:align-middle  lg:w-[100%]   '>
            
             <Otp/>
             
