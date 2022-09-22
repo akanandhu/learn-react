@@ -8,7 +8,7 @@ module.exports = {
    
   extend: {
     fontFamily:{
-      "mont" : ['Montserrat, ...detailTheme.fontFamily.mont']
+      "mont" : ['Montserrat-Regular, ...detailTheme.fontFamily.mont']
     },
     boxShadow:{
       "love-shadow" : "0px 0px 8px 3px rgba(0, 0, 0, 0.1);"
@@ -33,6 +33,7 @@ module.exports = {
       "tableBG" : "#FAFFFD",
       "grayFont" : "#495159",
       "boxGray" : "#FAFFFD",
+      "resetText" : "#2B2929",
       
 
     },
