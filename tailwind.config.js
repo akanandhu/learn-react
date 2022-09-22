@@ -34,6 +34,7 @@ module.exports = {
       "grayFont" : "#495159",
       "boxGray" : "#FAFFFD",
       "resetText" : "#2B2929",
+      "placeText" : "#5B5858",
       
 
     },
