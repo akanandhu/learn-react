@@ -38,37 +38,7 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
-        {/* <h1 className='text-blue-700'>
-      <Link href={'./morepage/nextPage'}  >Link 1</Link>
-      </h1>
-      <button onClick={()=>{
-
-      }}>Link Button</button>
-
-      <h3 className='text-red-500'>Content<Link href={'./contentPage/mainPage'}>Page </Link></h3>
-      <h3>Tailwind Css <Link href={'./content2/content2'}> Content Page  </Link></h3>
-      <h3 className='text-red-800'><Link href={'./login/loginPage'}>Login Page</Link></h3>
-      <h3><Link href={'./signup/signUp'}>SignUp Page</Link></h3> */}
       
-      {/* <div className='h-[200px] w-[550px] bg-slate-500 flex text-white text-center justify-center  '>
-        <div className='lg:grid lg:grid-flow-col lg:grid-cols-4 lg:grid-rows-1  lg:w-[100%] '>
-        <button className='h-[100px] w-[100px] bg-white text-black ml-5 mt-5 rounded-xl' onClick={firstProject}>1</button>
-        <button className='h-[100px] w-[100px] bg-white text-black ml-5 mt-5 rounded-xl' onClick={secondProject}>2</button>
-        <button className='h-[100px] w-[100px] bg-white text-black ml-5 mt-5 rounded-xl' onClick={thirdProject}>3</button>
-        <button className='h-[100px] w-[100px] bg-white text-black ml-5 mt-5 rounded-xl' onClick={fourthProject}>4</button>
-        </div>
-        
-        </div>
-
-        <div className='h-[200px] w-[550px] bg-slate-500 text-white text-center justify-center '>
-          <div className='grid grid-flow-col grid-cols-4 grid-rows-1  w-[100%]'>
-        <button className='h-[100px] w-[100px] bg-white text-black ml-5 mt-5 rounded-xl' onClick={fifthProject}>5</button>
-        <button className='h-[100px] w-[100px] bg-white text-black ml-5 mt-5 rounded-xl ' onClick={sixthProject}>6</button>
-        <button className='h-[100px] w-[100px] bg-white text-black ml-5 mt-5 rounded-xl ' onClick={seventhProject}>7</button>
-        <button className='h-[100px] w-[100px] bg-white text-black ml-5 mt-5 rounded-xl'>8</button>
-        </div>
-        
-        </div> */}
 
         <div className=' w-screen justify-center h-[1000px] flex flex-1 '>
           <div className='bg-slate-400 w-[60%] h-[30%] grid grid-flow-row justify-center px-5 py-5'>
@@ -77,12 +47,16 @@ const Home: NextPage = () => {
         <button className='h-[100px] w-[100px] bg-white text-black ml-5 mt-5 rounded-xl' onClick={secondProject}>2</button>
         <button className='h-[100px] w-[100px] bg-white text-black ml-5 mt-5 rounded-xl' onClick={thirdProject}>3</button>
         <button className='h-[100px] w-[100px] bg-white text-black ml-5 mt-5 rounded-xl' onClick={fourthProject}>4</button>
+        <button className='h-[100px] w-[100px] bg-white text-black ml-5 mt-5 rounded-xl' onClick={fifthProject}>5</button>
+        <button className='h-[100px] w-[100px] bg-white text-black ml-5 mt-5 rounded-xl ' onClick={sixthProject}>6</button>
         </div>
         <div>
-          <button className='h-[100px] w-[100px] bg-white text-black ml-5 mt-5 rounded-xl' onClick={fifthProject}>5</button>
-          <button className='h-[100px] w-[100px] bg-white text-black ml-5 mt-5 rounded-xl ' onClick={sixthProject}>6</button>
+          
+          
           <button className='h-[100px] w-[100px] bg-white text-black ml-5 mt-5 rounded-xl ' onClick={seventhProject}>7</button>
            <button className='h-[100px] w-[100px] bg-white text-black ml-5 mt-5 rounded-xl'>8</button>
+           <button className='h-[100px] w-[100px] bg-white text-black ml-5 mt-5 rounded-xl'>9</button>
+           <button className='h-[100px] w-[100px] bg-white text-black ml-5 mt-5 rounded-xl'>10</button>
            </div>
         </div>
         </div>
