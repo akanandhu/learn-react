@@ -2,11 +2,11 @@ import React from 'react'
 
 function SignUpTable() {
   return (
-    <div>
-        <form className=' justify-center  md:h-[500px] md:w-[500px] md:flex md:flex-col md:justify-center lg:h-[579px] lg:w-[517px] lg:flex lg:flex-col lg:justify-center '>
+    <div className='lg:pl-[5%] pr-[5%] pt-[5%] pd-[5%]'>
+        <form className=' justify-center   md:h-[100%] md:w-[100%] md:flex md:flex-col md:justify-center lg:pl-10 lg:h-[100%] lg:w-[100%] lg:flex lg:flex-col lg:justify-center '>
            <div className='flex flex-col relative '>
-            <label className="text-3xl mb-4 font-semibold lg:text-3xl  lg:mb-8 lg:font-extrabold md:text-3xl md:mb-6  md:font-semibold font-['Montserrat_Regular'] md:font-['Montserrat_Regular'] lg:font-['Montserrat_Regular']" > Signup </label>
-            <input placeholder='Phone number' type='number' className=" placeholder:text-extrabold font-['Montserrat_Regular'] md:font-['Montserrat_Regular'] lg:font-['Montserrat_Regular']lg: mb-5 w-[523px] h-[56px] border-[2px] rounded-[10px] placeholder:px-0 placeholder:text-placeText p-5 "></input>
+            <label className="text-3xl mb-4 font-semibold lg:text-3xl  lg:mb-8 lg:leading-3 md:text-3xl md:mb-6  md:font-semibold font-['Montserrat_Regular'] md:font-['Montserrat_Regular'] lg:font-['Montserrat_ExtraBold'] lg:font-semibold " > Signup </label>
+            <input placeholder='Phone number' type='number' className=" lg:flex lg:flex-1  placeholder:text-extrabold font-['Montserrat_Regular'] md:font-['Montserrat_Regular'] lg:font-['Montserrat_Regular']lg: mb-5 w-[523px] h-[56px] border-[2px] rounded-[10px] placeholder:px-0 placeholder:text-placeText p-5 "></input>
             <input placeholder='Student name' className="font-['Montserrat_Regular'] md:font-['Montserrat_Regular'] lg:font-['Montserrat_Regular'] mb-5 w-[523px] h-[56px] border-[2px] rounded-[10px] placeholder:px-0 placeholder:text-placeText p-5"></input>
             <input placeholder='Student Email'  className="font-['Montserrat_Regular'] md:font-['Montserrat_Regular'] lg:font-['Montserrat_Regular'] mb-5 w-[523px] h-[56px] border-[2px] rounded-[10px] placeholder:px-0 placeholder:text-placeText p-5"></input>
            </div>
