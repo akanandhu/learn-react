@@ -5,7 +5,7 @@ import study from '/public/images/study.png'
 
 function otpPage() {
   return (
-    <div className='w-screen h-screen lg:w-screen lg:h-full md:h-screen md:w-screen md:flex lg:flex lg:flex-row md:flex-row flex flex-col ' >
+    <div className='w-screen h-screen lg:w-screen lg:h-screen md:h-screen md:w-screen md:flex lg:flex lg:flex-row md:flex-row flex flex-col ' >
         <div className='lg:w-[56%] lg:h-full md:h-[100%] bg-pinkBG w-[100%] h-[100%]'>
             <div className=' lg:pl-[135px] lg:pr-[95px] lg:pt-[200px] lg:pb-[192px] md:pl-[5%] md:pr-[10%] pt-[18%] md:pt-[38%]  '>
                 <Image src={study} width={811} height={589} className='object-scale-down' />

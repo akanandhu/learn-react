@@ -2,7 +2,7 @@ import React from 'react'
 import Image from 'next/image'
 import student from '/public/images/student.png'
 import line from '/public/images/line 18.png';
-import SignUpTable from '../../components/signUpTable';
+import SignUpTable from '../../components/SignUpTable';
 
 
 function signUp() {
