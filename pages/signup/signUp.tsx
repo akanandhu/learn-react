@@ -13,7 +13,7 @@ function signUp() {
             <Image src={student}  className=' object-scale-down '/>
             </div>
         </div>
-        <div className=' bg-tableBG lg:border lg:shadow-[0px_opx_2px_rgba(0,0,0,0.2)]  mr-10 mb-1  mt-20 ml-24 flex justify-center  md:ml-24 md:bg-tableBG md:h-[100%] md:w-[50%] md:justify-center  md:flex lg:bg-tableBG lg:pl-0 lg:pr-10 lg:pb-5 lg:pt-2 lg:h-[100%] lg:w-[50%] lg:justify-center  lg:flex'>
+        <div className=' bg-tableBG lg:border lg:shadow-[0px_opx_2px_rgba(0,0,0,0.2)] lg:mb-1 lg:mr-[5%] lg:flex-1  lg:mt-20 lg:ml-24 flex justify-center  md:ml-24 md:bg-tableBG md:h-[100%] md:w-[50%] md:justify-center  md:flex lg:bg-tableBG lg:pl-0 lg:pr-20 lg:pb-5 lg:pt-2 lg:h-[100%] lg:w-[50%] lg:justify-center  lg:flex'>
         
            <SignUpTable/>
         </div>
