@@ -9,7 +9,7 @@ module.exports = {
   extend: {
     fontFamily:{
       "mont" : ['Montserrat-Regular, ...detailTheme.fontFamily.mont'],
-      "mont-extra" : ["Montserrat-Bold, ...detailTheme.fontFamily.mont-extra"],
+      "mont-bold" : ["Montserrat-Bold, ...detailTheme.fontFamily.mont-bold"],
     },
     boxShadow:{
       "love-shadow" : "0px 0px 8px 3px rgba(0, 0, 0, 0.1);"
