@@ -3,10 +3,7 @@ import React from 'react'
 type SigninProps = {
   text: string,
   label : string,
-  placeholder : string,
- 
-
-  
+  placeholder : string, 
 }
 function Signin({text,label,placeholder} :SigninProps) {
   return (

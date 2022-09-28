@@ -1,0 +1,6 @@
+<div className='flex flex-row gap-4 mb-2 lg:flex lg:flex-row lg:gap-4 lg:mb-2 md:flex md:flex-row md:gap-4 md:mb-2'>
+<div className=' bg-boxBG h-[36px] w-[36px] lg:h-[62px] lg:w-[62px] md:h-[42px] md:w-[42px] border-boxBorder rounded-[10px] border-solid border-[1px]'></div>
+<div className=' bg-boxBG h-[36px] w-[36px] lg:h-[62px] lg:w-[62px] md:h-[42px] md:w-[42px] border-boxBorder rounded-[10px] border-solid border-[1px]'></div>
+<div className=' bg-boxBG h-[36px] w-[36px] lg:h-[62px] lg:w-[62px] md:h-[42px] md:w-[42px] border-boxBorder rounded-[10px] border-solid border-[1px]'></div>
+<div className=' bg-boxBG h-[36px] w-[36px] lg:h-[62px] lg:w-[62px] md:h-[42px] md:w-[42px] border-boxBorder rounded-[10px] border-solid border-[1px]'></div>
+</div>
