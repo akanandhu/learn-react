@@ -2,7 +2,7 @@ import React from 'react'
 
 function SignUpTable() {
   return ( 
-    <div className='pl-[53%] pt-[10%] lg:pl-[32%] lg:pr-[22%] lg:pt-[9%] lg:pb-[5%] lg:flex lg:flex-1 '>
+    <div className='pl-[53%] pt-[4%] md:pt-2 md:pr-10 md:pb-5 md:pl-3 md:mb-10 lg:pl-[32%] lg:pr-[22%] lg:pt-[9%] lg:pb-[5%] lg:flex lg:flex-1 md:mr-5  '>
         <form className=' justify-center   md:h-[100%] md:w-[100%] md:flex md:flex-col md:justify-center lg:pl-10 lg:h-[100%] lg:w-[100%] lg:flex lg:flex-col lg:justify-center '>
            <div className='flex flex-col relative gap-5 '>
             <label className="font-mont-bold font-semibold  text-3xl mb-4 lg:text-3xl  lg:mb-8 lg:leading-3 md:text-3xl md:mb-6  md:font-semibold lg:font-mont-bold md:font-mont-bold lg:font-semibold " > Signup </label>
