@@ -21,6 +21,28 @@ function RightOtp({mobile,time,firstLine,secondLine,reset, login}: RightOtpProps
   const toastResent = () => {
     toast.success('OTP resent successfully')
   }
+  const boxStyle = {
+    display : "flex",
+    backgroundColor : "white",
+    marginright : "10px",
+    color: 'black',
+    
+  };
+  const inputStyle = {
+    color: "black",
+    width : "66px",
+    height : "66px",
+    borderColor : "#D0D0D0",
+    borderWidth : "1px",
+    marginRight : "17px",
+    backgroundColor : "#F9F9F9",
+    borderRadius : "12px"
+  }
+  const focusStyle = {
+    
+    
+  }
+  
   return (
     <div className=' w-[100%] flex justify-center pt-[5%] lg:w-[44%] lg:h-[100%] lg:flex lg:justify-center lg:align-middle lg:pt-[10%] md:w-[44%] md:h-[100%] md:flex md:justify-center md:pt-[20%]  '>
     <div className=' w-[100%] lg:w-[600px] lg:h-[80%]  '>
@@ -35,9 +57,10 @@ function RightOtp({mobile,time,firstLine,secondLine,reset, login}: RightOtpProps
       
       <OtpInput 
       numInputs={4} 
-      separator={<span>-</span>}
-
-
+      separator={<span></span>}
+      containerStyle={boxStyle}
+      inputStyle={inputStyle}
+      focusStyle={focusStyle}
        />
       
       <h3 className='mb-1  font-sans font-bold lg:mb-1 md:mb-2 text-sm md:text-base  lg:text-sm'>{time}</h3>
