@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import OtpInput from 'react-otp-input';
+
 
 
 export default class App extends Component {
