@@ -1,20 +1,19 @@
 import React, { Component } from 'react';
 import OtpInput from 'react-otp-input';
 
-export default class extends Component {
+
+export default class App extends Component {
   state = { otp: '' };
 
-  handleChange = (otp: any) => this.setState({ otp });
+  handleChange = (otp:any) => this.setState({ otp });
 
   render() {
     return (
-      <OtpInput className='bg-black'
+      <OtpInput
         value={this.state.otp}
         onChange={this.handleChange}
-        numInputs={4}
+        numInputs={6}
         separator={<span>-</span>}
-        containerStyle={false}
-        isInputNum={true}
       />
     );
   }
