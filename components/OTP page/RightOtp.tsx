@@ -7,14 +7,12 @@ import 'react-toastify/dist/ReactToastify.css';
 type RightOtpProps = {
   mobile : '+91 91828202029',
   time : '00:45',
-  firstLine : 'Enter the OTP sent to the' ,
-  secondLine : "Mobile number",
   reset : 'Resent OTP',
   login : 'Login',
 }
 
 
-function RightOtp({mobile,time,firstLine,secondLine,reset, login}: RightOtpProps) {
+function RightOtp({mobile,time,reset, login}: RightOtpProps) {
   const toastMessage = () => {
     toast.warn("Enter the OTP");
   }
@@ -51,8 +49,8 @@ function RightOtp({mobile,time,firstLine,secondLine,reset, login}: RightOtpProps
     <div className=' flex flex-col gap-2 h-full w-[100%] pt-8 pb-8 lg:flex lg:flex-col lg:gap-2 lg:h-full lg:w-[100%] lg:pt-8 lg:pb-8 md:flex md:flex-col md:gap-2 md:h-[100%] md:w-[100%] md:pt-8 md:pb-8 '>
       <h1 className="font-['Montserrat_Regular'] text-3xl lg:text-3xl lg:mb-6 md:text-3xl md:mb-4  lg:font-extrabold ">Verify OTP</h1>
       <div>
-      <h3 className=' font-sans font-normal text-grayFont'>{firstLine}</h3>
-      <h3 className=' font-sans text-grayFont font-normal lg:mb-4 md:mb-3 '>{secondLine} <span className=' text-gray-600 text-xs font-bold'>{mobile} </span></h3>
+      <h3 className=' font-sans font-normal text-grayFont'>Enter the OTP sent to the</h3>
+      <h3 className=' font-sans text-grayFont font-normal lg:mb-4 md:mb-3 '>Mobile number <span className=' text-gray-600 text-xs font-bold'>{mobile} </span></h3>
       </div>
       
       <OtpInput 

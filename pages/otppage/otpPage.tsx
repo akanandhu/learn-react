@@ -10,7 +10,7 @@ function otpPage() {
         <div className='lg:w-[56%] lg:h-screen md:w-[100%] md:h-[100%] bg-pinkBG w-[100%] h-[100%]'>
             <LeftOtp />
         </div>
-            <RightOtp mobile='+91 91828202029' time='00:45' firstLine='Enter the OTP sent to the' secondLine='Mobile number' reset='Resent OTP' login='Login' />
+            <RightOtp mobile='+91 91828202029' time='00:45' reset='Resent OTP' login='Login' />
     </div>
   )
 }
