@@ -19,6 +19,7 @@ function RightOtp({mobile,time,reset, login}: RightOtpProps) {
   const toastResent = () => {
     toast.success('OTP resent successfully')
   }
+  
   const boxStyle = {
     display : "flex",
     backgroundColor : "white",
@@ -36,10 +37,15 @@ function RightOtp({mobile,time,reset, login}: RightOtpProps) {
     backgroundColor : "#F9F9F9",
     borderRadius : "12px"
   }
-  const [otp, setotp] = useState('')
+  const [otp, setOtp] = useState('')
+
   const handleChange = (otp : string) => {
-    setotp(otp)
+    setOtp(otp);
   }
+  const toastSuccess = () => {
+    toast.success("You have entered the OTP : "+ otp);
+  }
+
   
   return (
     <div className=' w-[100%] flex justify-center pt-[5%] lg:w-[44%] lg:h-[100%] lg:flex lg:justify-center lg:align-middle lg:pt-[10%] md:w-[44%] md:h-[100%] md:flex md:justify-center md:pt-[20%]  '>
@@ -50,7 +56,7 @@ function RightOtp({mobile,time,reset, login}: RightOtpProps) {
       <h1 className="font-['Montserrat_Regular'] text-3xl lg:text-3xl lg:mb-6 md:text-3xl md:mb-4  lg:font-extrabold ">Verify OTP</h1>
       <div>
       <h3 className=' font-sans font-normal text-grayFont'>Enter the OTP sent to the</h3>
-      <h3 className=' font-sans text-grayFont font-normal lg:mb-4 md:mb-3 '>Mobile number <span className=' text-gray-600 text-xs font-bold'>{mobile} </span></h3>
+      <h3 className=' font-sans text-grayFont font-normal lg:mb-4 md:mb-3 '> Mobile number <span className=' text-gray-600 text-xs font-bold'>{mobile} </span></h3>
       </div>
       
       <OtpInput 
@@ -63,7 +69,7 @@ function RightOtp({mobile,time,reset, login}: RightOtpProps) {
        />
       
       <h3 className='mb-1  font-sans font-bold lg:mb-1 md:mb-2 text-sm md:text-base  lg:text-sm'>{time}</h3>
-      <button onClick={toastMessage} className=" bg-greenBG h-[40px] w-[300px] lg:h-[59px] lg:w-[353px] md:h-[59px] md:w-[253px] md:mb-4 text-white font-['Montserrat_Regular'] font-semibold text-base rounded-md lg:mb-5">{login}</button>
+      <button onClick={toastSuccess} className=" bg-greenBG h-[40px] w-[300px] lg:h-[59px] lg:w-[353px] md:h-[59px] md:w-[253px] md:mb-4 text-white font-['Montserrat_Regular'] font-semibold text-base rounded-md lg:mb-5">{login}</button>
       <h3 onClick={toastResent} className=" cursor-pointer  text-resetText font-extrabold text-sm font-['Montserrat_Regular'] pl-[36%] lg:pl-[40%] md:pl-[35%]">{reset}</h3>
       <ToastContainer
         position="top-center"
