@@ -5,12 +5,12 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 type RightOtpProps = {
-  mobile : 'string',
-  time : 'number',
-  firstLine : 'string' ,
-  secondLine : "string",
-  reset : 'string',
-  login : 'string',
+  mobile : '+91 91828202029',
+  time : '00:45',
+  firstLine : 'Enter the OTP sent to the' ,
+  secondLine : "Mobile number",
+  reset : 'Resent OTP',
+  login : 'Login',
 }
 
 
