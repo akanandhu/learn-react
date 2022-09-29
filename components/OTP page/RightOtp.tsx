@@ -13,11 +13,9 @@ type RightOtpProps = {
 
 
 function RightOtp({mobile,time,reset, login}: RightOtpProps) {
-  const toastMessage = () => {
-    toast.warn("Enter the OTP");
-  }
+  
   const toastResent = () => {
-    toast.success('OTP resent successfully')
+    toast.info('OTP resent successfully')
   }
   
   const boxStyle = {
