@@ -36,9 +36,9 @@ function RightOtp({mobile,time,reset, login}: RightOtpProps) {
     backgroundColor : "#F9F9F9",
     borderRadius : "12px"
   }
-  const focusStyle = {
-    
-    
+  const [otp, setotp] = useState('')
+  const handleChange = (otp : string) => {
+    setotp(otp)
   }
   
   return (
@@ -54,11 +54,12 @@ function RightOtp({mobile,time,reset, login}: RightOtpProps) {
       </div>
       
       <OtpInput 
+      value={otp}
       numInputs={4} 
       separator={<span></span>}
       containerStyle={boxStyle}
       inputStyle={inputStyle}
-      focusStyle={focusStyle}
+      onChange={handleChange}
        />
       
       <h3 className='mb-1  font-sans font-bold lg:mb-1 md:mb-2 text-sm md:text-base  lg:text-sm'>{time}</h3>
