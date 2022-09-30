@@ -2,14 +2,14 @@ import next from "next";
 import Head from "next/head";
 import styles from './mainPage.module.css';
 import Image from 'next/image';
-import model from '/public/images/Rectangle 20.png';
+import model from '/public/images/Rectangle20.png';
 import star from '/public/images/star.png';
 import nostar from '/public/images/dark-star.png.png';
 import love from '/public/images/love.png.png';
-import ellipse from '/public/images/Ellipse 8.png'
-import ellipse1 from '/public/images/Ellipse 9.png'
-import ellipse2 from '/public/images/Ellipse 10.png'
-import leftArrow from '/public/images/left-arrow 1.png';
+import ellipse from '/public/images/Ellipse8.png'
+import ellipse1 from '/public/images/Ellipse9.png'
+import ellipse2 from '/public/images/Ellipse10.png'
+import leftArrow from '/public/images/left-arrow1.png';
 import Link from "next/link";
 import React from "react";
 

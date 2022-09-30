@@ -1,16 +1,16 @@
 import React from 'react'
 import Image from 'next/image'
-import model from '/public/images/Rectangle 20.png';
-import ellipse from '/public/images/Ellipse 8.png'
-import ellipse1 from '/public/images/Ellipse 9.png'
-import ellipse2 from '/public/images/Ellipse 10.png';
+import model from '/public/images/Rectangle20.png';
+import ellipse from '/public/images/Ellipse8.png'
+import ellipse1 from '/public/images/Ellipse9.png'
+import ellipse2 from '/public/images/Ellipse10.png';
 import star from '/public/images/star.png';
 import nostar from '/public/images/dark-star.png.png';
 import love from '/public/images/love.png.png';
-import rupee from '/public/images/rupee-indian 1.png'
+import rupee from '/public/images/rupee-indian1.png'
 import ruppees from '/public/images/indianrupee.png';
-import leftArrow from '/public/images/left-arrow 1.png';
-import cart from '/public/images/shopping-bag 1.png'
+import leftArrow from '/public/images/left-arrow1.png';
+import cart from '/public/images/shopping-bag1.png'
 function content2() {
   return (
     <div className=' flex justify-center h-[930px] w-full bg-gray-400 relative ' >

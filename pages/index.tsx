@@ -29,6 +29,9 @@ const Home: NextPage = () => {
   const seventhProject = () =>{
     router.push('/otppage/otpPage')
   } 
+  const eigthProject = () =>{
+    router.push('/morepage/axiosPage');
+  } 
   return (
     <div className={styles.container}>
       <Head>
@@ -54,7 +57,7 @@ const Home: NextPage = () => {
           
           
           <button className='h-[100px] w-[100px] bg-white text-black ml-5 mt-5 rounded-xl ' onClick={seventhProject}>7</button>
-           <button className='h-[100px] w-[100px] bg-white text-black ml-5 mt-5 rounded-xl'>8</button>
+           <button className='h-[100px] w-[100px] bg-white text-black ml-5 mt-5 rounded-xl' onClick={eigthProject}>8</button>
            <button className='h-[100px] w-[100px] bg-white text-black ml-5 mt-5 rounded-xl'>9</button>
            <button className='h-[100px] w-[100px] bg-white text-black ml-5 mt-5 rounded-xl'>10</button>
            </div>
