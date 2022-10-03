@@ -32,6 +32,9 @@ const Home: NextPage = () => {
   const eigthProject = () =>{
     router.push('/morepage/axiosPage');
   } 
+  const ninethProject = () => {
+    router.push('/EduApp/eduApp')
+  }
   return (
     <div className={styles.container}>
       <Head>
@@ -58,7 +61,7 @@ const Home: NextPage = () => {
           
           <button className='h-[100px] w-[100px] bg-white text-black ml-5 mt-5 rounded-xl ' onClick={seventhProject}>7</button>
            <button className='h-[100px] w-[100px] bg-white text-black ml-5 mt-5 rounded-xl' onClick={eigthProject}>8</button>
-           <button className='h-[100px] w-[100px] bg-white text-black ml-5 mt-5 rounded-xl'>9</button>
+           <button className='h-[100px] w-[100px] bg-white text-black ml-5 mt-5 rounded-xl' onClick={ninethProject}>9</button>
            <button className='h-[100px] w-[100px] bg-white text-black ml-5 mt-5 rounded-xl'>10</button>
            </div>
         </div>

@@ -36,7 +36,7 @@ module.exports = {
       "boxGray" : "#FAFFFD",
       "resetText" : "#2B2929",
       "placeText" : "#5B5858",
-      
+      "eduGreen" : '#00C285',
 
     },
 
