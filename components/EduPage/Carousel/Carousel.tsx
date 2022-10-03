@@ -16,7 +16,7 @@ const CarouselPro = () => {
        
         <Carousel showArrows={false} showStatus={false} width='75%'  dynamicHeight={true}>
                 <div>
-                    <Image src={yellow} />
+                    <Image src={yellow} className="object-center" />
                 </div>
                 <div>
                     <Image src={pink}  />
