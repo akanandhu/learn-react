@@ -37,7 +37,12 @@ module.exports = {
       "resetText" : "#2B2929",
       "placeText" : "#5B5858",
       "eduGreen" : '#00C285',
-
+      "textGray" : "#858585",
+      "liveclass" : "#FAF5FE",
+      "livetext" : "#626262",
+      "buttonOrange" : "#FB773D",
+      "blackGrad" : "#1A181D99",
+      "livered" : "#C13232",
     },
 
   },

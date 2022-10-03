@@ -12,7 +12,7 @@ import student from 'public/images/studentsv.svg'
 
 const CarouselPro = () => {
   return (
-    <div className=' pl-40 pt-10 pr-0 pb-40 flex justify-center '>
+    <div className=' pl-40 pt-10 pr-0 pb-10 flex justify-center '>
        
         <Carousel showArrows={false} showStatus={false} width='75%'  dynamicHeight={true}>
                 <div>
