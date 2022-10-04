@@ -14,13 +14,13 @@ function NavBar() {
         <div className='pl-[25%] pt-[10%]'>
         <Image src={logo} width={123} height={70}  />
         </div>
-        <div className='lg:h-[75%] lg:w-[100%] lg:pt-20 '>
-        <div className='lg:h-[100%] lg:w-[100%] grid grid-flow-row gap-16 pr-14'>
+        <div className='lg:h-[75%] lg:w-[100%] lg:pt-20 lg:ml-14 '>
+        <div className='lg:h-[360px] lg:w-[100%] grid grid-flow-row pr-14'>
 
-            <BlockOption tagStyles=' text-black font-[`Montserrat-Bold`] font-semibold ' icon={home} tag="Home" />
-            <BlockOption tagStyles='text-white font-[`Montserrat-Bold`] font-semibold ' icon={course} tag="My Course" />
-            <BlockOption tagStyles=' text-white font-[`Montserrat-Bold`] font-semibold ' icon={mock} tag='Mock Test' />
-            <BlockOption tagStyles=' text-white font-[`Montserrat-Bold`] font-semibold ' icon={bulb} tag='Practice' />
+            <BlockOption whiteStyles='absolute right-0' tagStyles=' text-black font-[`Montserrat-Bold`] font-semibold ' icon={home} tag="Home" />
+            <BlockOption whiteStyles='absolute right-0 hidden' tagStyles='text-white font-[`Montserrat-Bold`] font-semibold ' icon={course} tag="My Course" />
+            <BlockOption whiteStyles='absolute right-0 hidden' tagStyles=' text-white font-[`Montserrat-Bold`] font-semibold ' icon={mock} tag='Mock Test' />
+            <BlockOption whiteStyles='absolute right-0 hidden' tagStyles=' text-white font-[`Montserrat-Bold`] font-semibold ' icon={bulb} tag='Practice' />
         </div>
         </div>
         </div>
