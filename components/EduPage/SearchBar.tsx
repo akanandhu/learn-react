@@ -1,4 +1,4 @@
-import React from 'react'
+
 import search from '/public/images/search.png'
 import bell from '/public/images/bell.png'
 import user from '/public/images/user.png'

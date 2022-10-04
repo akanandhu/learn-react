@@ -1,4 +1,4 @@
-import React from 'react'
+
 import Image from 'next/image'
 import student from '/public/images/student.png'
 function SignUpLeft() {

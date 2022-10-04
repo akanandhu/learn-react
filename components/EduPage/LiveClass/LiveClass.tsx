@@ -1,4 +1,4 @@
-import React from 'react'
+
 import Image from 'next/image'
 import greenRect from 'public/images/greenRect.png'
 import star from 'public/images/endstar.png'
@@ -52,7 +52,7 @@ const VideoBox = ({subject,time,speaker,Starttime,attendance}: VideoBoxProps) =>
                     </div>
                     <div className='grid grid-flow-col gap-2'>
                         <div className='flex flex-col gap-2'>
-                        <div className='font-bold font-mont'> Beginner's Guide : Biomolecules </div>
+                        <div className='font-bold font-mont'> <p>Beginners Guide : Biomolecules </p> </div>
                         <div className='font-mont text-livetext font-medium'>{time}min By {speaker}</div>
                         </div>
                         <div>

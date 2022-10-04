@@ -1,4 +1,4 @@
-import React from 'react'
+
 import study from '/public/images/study.png'
 import Image from 'next/image'
 

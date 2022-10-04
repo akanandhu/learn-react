@@ -1,4 +1,4 @@
-import React from 'react'
+
 import CarouselBody from '../../components/EduPage/CarouselBody'
 import LiveClass from '../../components/EduPage/LiveClass/LiveClass'
 import NavBar from '../../components/EduPage/navBar'

@@ -1,4 +1,4 @@
-import React from 'react'
+
 import Image from 'next/image'
 import buttonwhite from 'public/images/buttonShape.png'
 type BlockOptionProps = {
