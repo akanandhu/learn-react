@@ -49,20 +49,20 @@ const Home: NextPage = () => {
         <div className=' w-screen justify-center h-[1000px] flex flex-1 '>
           <div className='bg-slate-400 w-[60%] h-[30%] grid grid-flow-row justify-center px-5 py-5'>
             <div className=' '>
-          <button className='h-[100px] w-[100px] bg-white text-black ml-5 mt-5 rounded-xl' onClick={firstProject}>1</button>
-        <button className='h-[100px] w-[100px] bg-white text-black ml-5 mt-5 rounded-xl' onClick={secondProject}>2</button>
-        <button className='h-[100px] w-[100px] bg-white text-black ml-5 mt-5 rounded-xl' onClick={thirdProject}>3</button>
-        <button className='h-[100px] w-[100px] bg-white text-black ml-5 mt-5 rounded-xl' onClick={fourthProject}>4</button>
-        <button className='h-[100px] w-[100px] bg-white text-black ml-5 mt-5 rounded-xl' onClick={fifthProject}>5</button>
-        <button className='h-[100px] w-[100px] bg-white text-black ml-5 mt-5 rounded-xl ' onClick={sixthProject}>6</button>
+          <button className='h-[100px] w-[100px] bg-white text-white hover:border-2 ml-5 mt-5 rounded-xl bg-gradient-to-r from-[#F85750] to-[#A73F3A]' onClick={firstProject}>Pages</button>
+        <button className='h-[100px] w-[100px] bg-white text-white hover:border-2 ml-5 mt-5 rounded-xl bg-gradient-to-r from-[#F39C12] to-[#9C6B1E]' onClick={secondProject}>Pages</button>
+        <button className='h-[100px] w-[100px] bg-white text-white hover:border-2 ml-5 mt-5 rounded-xl bg-gradient-to-r from-[#7F8CF1] to-[#444E9C]' onClick={thirdProject}>Card CSS</button>
+        <button className='h-[100px] w-[100px] bg-white text-white hover:border-2 ml-5 mt-5 rounded-xl bg-gradient-to-r from-[#7F8CF1] to-[#444E9C]' onClick={fourthProject}>Card Tailwind</button>
+        <button className='h-[100px] w-[100px] bg-white text-white hover:border-2 ml-5 mt-5 rounded-xl bg-gradient-to-r from-[#9459D7] to-[#4A3AA7]' onClick={fifthProject}>Login</button>
+        <button className='h-[100px] w-[100px] bg-white text-white hover:border-2 ml-5 mt-5 rounded-xl  bg-gradient-to-r from-[#F85750] to-[#A73F3A] ' onClick={sixthProject}>SignUp</button>
         </div>
         <div>
           
           
-          <button className='h-[100px] w-[100px] bg-white text-black ml-5 mt-5 rounded-xl ' onClick={seventhProject}>7</button>
-           <button className='h-[100px] w-[100px] bg-white text-black ml-5 mt-5 rounded-xl' onClick={eigthProject}>8</button>
-           <button className='h-[100px] w-[100px] bg-white text-black ml-5 mt-5 rounded-xl' onClick={ninethProject}>9</button>
-           <button className='h-[100px] w-[100px] bg-white text-black ml-5 mt-5 rounded-xl'>10</button>
+          <button className='h-[100px] w-[100px] text-white ml-5 mt-5 rounded-xl hover:border-2 bg-gradient-to-r from-[#F85750] to-[#A73F3A] ' onClick={seventhProject}>OTP</button>
+           <button className='h-[100px] w-[100px]  text-white ml-5 mt-5 rounded-xl hover:border-2  bg-gradient-to-r from-[#F39C12] to-[#9C6B1E]' onClick={eigthProject}>LMS</button>
+           <button className='h-[100px] w-[100px]  text-white ml-5 mt-5 rounded-xl hover:border-2 bg-gradient-to-r from-[#7F8CF1] to-[#444E9C] ' onClick={ninethProject}>9</button>
+           <button className='h-[100px] w-[100px]  text-white ml-5 mt-5 rounded-xl hover:border-2 bg-gradient-to-r from-[#9459D7] to-[#4A3AA7] '>10</button>
            </div>
         </div>
         </div>
