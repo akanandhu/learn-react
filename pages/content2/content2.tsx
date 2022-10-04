@@ -13,14 +13,14 @@ import leftArrow from '/public/images/left-arrow1.png';
 import cart from '/public/images/shopping-bag1.png'
 function content2() {
   return (
-    <div className=' flex justify-center h-[930px] w-full bg-gray-400 relative ' >
+    <div className=' flex justify-center h-[930px] w-full bg-gray-400 relative  ' >
       <div className='z-10'>
-        <div className=' bg-bodywhite h-[34px] w-[34px] rounded-full flex justify-center absolute top-[38px] left-[16px] ml-[640px] '>
+        <div className=' bg-bodywhite h-[34px] w-[34px] rounded-full flex justify-center absolute top-[5%] left-[37.5%]  '>
         <Image src={leftArrow} className='object-none' />
         </div>
         </div>
         <div className='z-10'>
-        <div className=' bg-bodywhite h-[34px] w-[34px] rounded-full flex justify-center absolute top-[38px] right-[16px] mr-[640px] '>
+        <div className=' bg-bodywhite h-[34px] w-[34px] rounded-full flex justify-center absolute top-[5%] right-[37.5%] '>
         <Image src={cart} className='object-none' />
         </div>
         </div>
