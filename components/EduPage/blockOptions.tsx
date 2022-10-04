@@ -7,18 +7,23 @@ type BlockOptionProps = {
     icon : any,
     tagStyles : any,
     whiteStyles : any,
+    mainBlockStyles : any,
 }
 
 
-export const BlockOption = ({tag,icon,tagStyles,whiteStyles}: BlockOptionProps) => {
+export const BlockOption = ({tag,icon,tagStyles,whiteStyles,mainBlockStyles}: BlockOptionProps) => {
    
     return (
-    <div className='flex relative flex-1 gap-5 justify-center align-middle'>
-        <div className={whiteStyles}>
-    <Image src={buttonwhite}  />
-    </div>
-    <Image src={icon} width={32} height={32} className='lg:object-scale-down' />
-    <div  className={tagStyles}>{tag}</div>
+    
+    <div className={mainBlockStyles}>
+       
+            <div className='z-10 pt-4  '>
+                <Image src={icon} height={40} width={90} className='object-none' />
+            </div>
+            <div className={tagStyles}>
+                <h1 className='lg:pt-1'>{tag}</h1>
+            </div>
+            
     </div>
     )
 }

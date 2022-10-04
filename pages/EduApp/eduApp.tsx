@@ -8,13 +8,15 @@ import SubjectBlocks from '../../components/EduPage/Subjects/SubjectBlocks'
 function eduApp() {
   return (
     <div className='lg:w-screen lg:h-[100%] lg:flex '>
-        <div className='lg:w-[20%]  lg:bg-eduGreen'>
+        <div className='lg:w-[20%]  lg:bg-red-400'>
         <NavBar /></div>
-        <div className='h-[10%] w-screen bg-white '>
+        <div className='h-[10%] w-screen bg-bodywhite '>
         <SearchBar />
+        <div className=' bg-bodyShade'>
         <CarouselBody />
         <SubjectBlocks />
         <LiveClass />
+        </div>
         </div>
     </div>
   )

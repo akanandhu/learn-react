@@ -6,6 +6,9 @@ import line from 'public/images/line.png'
 import orange from 'public/images/orangeBanner.png'
 import model from 'public/images/model.png'
 import orangeLine from 'public/images/orangeLine.png'
+import gold from 'public/images/gold.png'
+import symb from 'public/images/backIcon.png'
+import detail from 'public/images/details.png'
 
 type VideoBoxProps = {
     subject : any,
@@ -17,36 +20,37 @@ type VideoBoxProps = {
 
 const VideoBox = ({subject,time,speaker,Starttime,attendance}: VideoBoxProps) => {
     return(
-        <div>
-                <div className='relative'>
-                
-                    <Image src={greenRect} />
-                    <div className='absolute left-0 bottom-0'>
+        <div >
+                <div className='relative  '>
                     
-                    <Image src={model} className='object-none' />
+                    <div className='  min-w-[530px] max-w-[12%] '>
+                    <Image src={greenRect} className=' object-fill ' />
                     </div>
-                    <div className=' bg-blackGrad opacity-90 flex align-bottom items-end pl-3 pb-1 text-white font-light font-mont lg:h-[12%] lg:w-[100%] absolute bottom-1'>
+                    <div className='absolute flex left-0 bottom-0'>
+                        <div>
+                            <Image src={model} className=' object-scale-down' />
+                         </div>
+                         <div className='abosolute flex pl-20 pt-8 '>
+                        <Image src={detail} className='object-scale-down' />
+                    </div>
+                    
+                         <div className='absolute z-10 left-10 right-0'>
+                        
+                    </div>
+                    <div className=' bg-blackGrad opacity-90 flex align-bottom items-end pl-5 pb-1 text-white font-light font-mont lg:h-[12%] lg:w-[100%] absolute bottom-1'>
                     <h1>Start at {Starttime} - {attendance} attending </h1>
                     </div>
-                    <div className='absolute right-0 bottom-24'>
-                    <Image src={orange}  />
-                    </div>
-                    <div className='absolute text-2xl lg:pl-1  text-white font-semibold bottom-36 top-32 left-42  right-28'>
-                    <h1>Aleena Sara</h1>                   
-                    </div>
                     
-                    <h3 className='absolute text-white font-normal bottom-16 top-44 left-42 right-24'>B-Tech - BITS Pilani </h3>
-                    <div className='absolute bottom-16 right-16'>
-                    <Image src={orangeLine} className='object-none'  />
-                    </div>
-                    <h3 className='absolute text-white font-normal bottom-12 left-42 right-28'>Chemistry Expert </h3>
-                    <div className='absolute bg-livered pl-4 pb-2 pt-2 pr-4 text-white rounded-md top-5 right-6  font-semibold  '>
+                    <div className='absolute bg-livered pl-4 pb-2 pt-2 pr-4 text-white rounded-md top-5 right-6  font-semibold   '>
                        .  Live
                     </div>
+                    </div>
+                    
+                   
                     
                     
                 </div>
-                 <div className='grid grid-flow-row bg-liveclass lg:pl-5 lg:pt-5 lg:pb-5 lg:pr-5 ' >
+                 <div className='grid grid-flow-row   bg-liveclass lg:pl-5 lg:pt-1 lg:pb-5 lg:pr-5 max-w-[2%] min-w-[530px] ' >
                     <div className=' font-mont font-semibold text-livetext '>
                         {subject}
                     </div>

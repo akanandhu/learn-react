@@ -43,6 +43,7 @@ module.exports = {
       "buttonOrange" : "#FB773D",
       "blackGrad" : "#1A181D99",
       "livered" : "#C13232",
+      "bodyShade" : "#E5E5E5",
     },
 
   },
