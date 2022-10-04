@@ -30,10 +30,10 @@ const Home: NextPage = () => {
     router.push('/otppage/otpPage')
   } 
   const eigthProject = () =>{
-    router.push('/morepage/axiosPage');
+    router.push('/EduApp/eduApp');
   } 
   const ninethProject = () => {
-    router.push('/EduApp/eduApp')
+    router.push('/morepage/axiosPage');
   }
   return (
     <div className={styles.container}>
