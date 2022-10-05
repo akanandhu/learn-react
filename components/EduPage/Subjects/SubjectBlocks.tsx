@@ -71,7 +71,7 @@ function SubjectBlocks() {
         ChapeterNum={14}   />
         </div>
         <div>
-        <SubjectCard boxClassName={'lg:h-[125px] lg:w-[125px] lg:rounded-[18%] lg:grid lg:justify-center lg:bg-gradient-to-r from-[#F39C12] to-[#9C6B1E] md:h-[120px] md:w-[120px] md:rounded-[20%] md:grid  md:justify-center md:bg-gradient-to-r from-[#F85750] to-[#A73F3A] h-[300px] w-[300px] rounded-[20%] grid  justify-center bg-gradient-to-r from-[#F85750] to-[#A73F3A]'} 
+        <SubjectCard boxClassName={'lg:h-[125px] lg:w-[125px] lg:rounded-[18%] lg:grid lg:justify-center lg:bg-gradient-to-r from-[#F39C12] to-[#9C6B1E] md:h-[120px] md:w-[120px] md:rounded-[20%] md:grid  md:justify-center md:bg-gradient-to-r from-[#F39C12] to-[#9C6B1E] h-[300px] w-[300px] rounded-[20%] grid  justify-center bg-gradient-to-r from-[#F39C12] to-[#9C6B1E]'} 
         icon={bio} 
         subject="Biology" 
         ChapeterNum={14}   />
@@ -91,16 +91,16 @@ function SubjectBlocks() {
         icon={che} 
         subject="Chemistry" 
         ChapeterNum={14}   />
-        <SubjectCard boxClassName={'lg:h-[125px] lg:w-[125px] lg:rounded-[18%] lg:flex lg:justify-center lg:bg-gradient-to-r from-[#7F8CF1] to-[#444E9C] md:h-[125px] md:w-[125px] md:rounded-[18%] md:flex md:justify-center md:bg-gradient-to-r from-[#9459D7] to-[#4A3AA7] h-[300px] w-[300px] rounded-[18%] flex justify-center bg-gradient-to-r from-[#9459D7] to-[#4A3AA7]'} 
+        <SubjectCard boxClassName={'lg:h-[125px] lg:w-[125px] lg:rounded-[18%] lg:flex lg:justify-center lg:bg-gradient-to-r from-[#7F8CF1] to-[#444E9C] md:h-[125px] md:w-[125px] md:rounded-[18%] md:flex md:justify-center md:bg-gradient-to-r from-[#9459D7] to-[#4A3AA7] h-[300px] w-[300px] rounded-[18%] flex justify-center bg-gradient-to-r from-[#7F8CF1] to-[#444E9C]'} 
         icon={math} 
         subject="Maths" 
         ChapeterNum={14}   />
-        <SubjectCard boxClassName={'lg:h-[125px] lg:w-[125px] lg:rounded-[18%] lg:flex lg:justify-center lg:bg-gradient-to-r from-[#F39C12] to-[#9C6B1E] md:h-[125px] md:w-[125px] md:rounded-[18%] md:flex md:justify-center md:bg-gradient-to-r from-[#9459D7] to-[#4A3AA7] h-[300px] w-[300px] rounded-[18%] flex justify-center bg-gradient-to-r from-[#9459D7] to-[#4A3AA7]'} 
+        <SubjectCard boxClassName={'lg:h-[125px] lg:w-[125px] lg:rounded-[18%] lg:flex lg:justify-center lg:bg-gradient-to-r from-[#F39C12] to-[#9C6B1E] md:h-[125px] md:w-[125px] md:rounded-[18%] md:flex md:justify-center md:bg-gradient-to-r from-[#9459D7] to-[#4A3AA7] h-[300px] w-[300px] rounded-[18%] flex justify-center bg-gradient-to-r from-[#F39C12] to-[#9C6B1E]'} 
         icon={bio} 
         subject=
         "Biology" 
         ChapeterNum={14}   />
-        <SubjectCard boxClassName={'lg:h-[125px] lg:w-[125px] lg:rounded-[18%] lg:flex lg:justify-center lg:bg-gradient-to-r from-[#F85750] to-[#A73F3A] md:h-[125px] md:w-[125px] md:rounded-[18%] md:flex md:justify-center md:bg-gradient-to-r from-[#F85750] to-[#A73F3A] h-[300px] w-[300px] rounded-[18%] flex justify-center bg-gradient-to-r from-[#9459D7] to-[#4A3AA7]'} 
+        <SubjectCard boxClassName={'lg:h-[125px] lg:w-[125px] lg:rounded-[18%] lg:flex lg:justify-center lg:bg-gradient-to-r from-[#F85750] to-[#A73F3A] md:h-[125px] md:w-[125px] md:rounded-[18%] md:flex md:justify-center md:bg-gradient-to-r from-[#F85750] to-[#A73F3A] h-[300px] w-[300px] rounded-[18%] flex justify-center bg-gradient-to-r from-[#F85750] to-[#A73F3A]'} 
         icon={phy} 
         subject="Physics" 
         ChapeterNum={14}   />

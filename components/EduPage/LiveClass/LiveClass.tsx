@@ -83,6 +83,9 @@ const VideoBox = ({subject,time,speaker,Starttime,attendance}: VideoBoxProps) =>
                     md:flex md:flex-1 md:justify-center md:pt-3 md:pb-3
                     flex flex-1 justify-center pt-3 pb-3'>
                         {/* <Image src={line} height={10} className="lg:object-scale-down md:object-scale-down object-scale-down" /> */}
+                        <div className='bg-black border-b-2 border-solid border-black opacity-[.3] h-[0px] w-[100%]  '>
+                        
+                        </div>
                     </div>
                     <div className='lg:font-mont lg:flex lg:gap-3 lg:align-middle lg:font-medium lg:text-livetext
                     md:font-mont md:flex md:gap-3 md:align-middle md:font-medium md:text-livetext

@@ -1,5 +1,4 @@
 
-
 type SignUpRightProps ={
   heading : 'Signup',
   
@@ -31,6 +30,7 @@ function SignUpRight({heading} :SignUpRightProps) {
           
         </form>      
     </div>
+    
    
   )
 }
