@@ -7,8 +7,8 @@ type SignUpRightProps ={
 
 function SignUpRight({heading} :SignUpRightProps) {
   return ( 
-    <div className='pl-[53%] pt-[4%] md:mr-[6%] md:pt-[2%] md:pr-[2%] md:pb-5 md:pl-[50%] md:mb-10   lg:pl-[38%] lg:pr-[22%] lg:pt-[9%] lg:pb-[10%] lg:mb-7 lg:flex lg:flex-1  '>
-        <form className=' justify-center md:mr-5  md:h-[100%] md:w-[100%] md:flex md:flex-col lg:pt-28  lg:ml-12  lg:pl-20 lg:pb-28 lg:pr-20 md:justify-center lg:h-[90%] lg:w-[100%] lg:flex lg:flex-col lg:justify-center '>
+    <div className='pl-[53%] pt-[4%] md:mr-[6%] md:pt-[2%] md:pr-[20%] md:pb-5 md:pl-[50%] md:mb-10   lg:pl-[38%] lg:pr-[32%] lg:pt-[19%] lg:pb-[10%] lg:mb-7 lg:flex lg:flex-1 lg:mt-10  '>
+        <form className=' justify-center md:mr-5  md:h-[100%] md:w-[60%] md:flex md:flex-col lg:pt-28  lg:ml-12  lg:pl-20 lg:pb-28 lg:pr-20 md:justify-center lg:h-[90%] lg:w-[100%] lg:flex lg:flex-col lg:justify-center '>
            <div className='flex flex-col relative gap-5  '>
             <label className="font-mont-bold font-semibold  text-3xl mb-4 lg:text-3xl  lg:mb-8 lg:leading-3 md:text-3xl md:mb-6  md:font-semibold lg:font-mont-bold md:font-mont-bold lg:font-semibold " > {heading} </label>
             <input placeholder='Phone number' type='number' className=" lg:flex lg:flex-1  placeholder:text-extrabold font-mont-bold font-semibold  md:font-mont-bold md:font-semibold lg:font-mont-bold lg:font-semibold lg: mb-5 w-[523px] h-[56px] border-[2px] rounded-[10px] placeholder:px-0 placeholder:text-placeText p-5 "></input>
