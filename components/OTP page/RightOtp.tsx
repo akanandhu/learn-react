@@ -51,7 +51,7 @@ function RightOtp({mobile,time,reset, login}: RightOtpProps) {
     <div className=' flex justify-center lg:flex lg:justify-center lg:align-middle  lg:w-[100%] pb-5  '>
     <div className=' rounded-lg pl-10 pr-10 pt-5 pb-5 bg-tableBG shadow-[0px_0px_2px_rgba(0,0,0,0.2)]  lg:pr-10 lg:pt-5 lg:pb-5 lg:bg-tableBG lg:shadow-[0px_0px_2px_rgba(0,0,0,0.2)] md:pl-10 md:pr-10 md:pt-1 md-5 md:bg-tableBG md:shadow-[0px_0px_2px_rgba(0,0,0,0.2)]  '>
     <div className=' flex flex-col gap-2 h-full w-[100%] pt-8 pb-8 lg:flex lg:flex-col lg:gap-2 lg:h-full lg:w-[100%] lg:pt-8 lg:pb-8 md:flex md:flex-col md:gap-2 md:h-[100%] md:w-[100%] md:pt-8 md:pb-8 '>
-      <h1 className="font-['Montserrat_Regular'] text-3xl lg:text-3xl lg:mb-6 md:text-3xl md:mb-4  lg:font-extrabold ">Verify OTP</h1>
+      <h1 className=" text-3xl lg:text-3xl lg:mb-6 md:text-3xl md:mb-4  lg:font-extrabold ">Verify OTP</h1>
       <div>
       <h3 className=' font-sans font-normal text-grayFont'>Enter the OTP sent to the</h3>
       <h3 className=' font-sans text-grayFont font-normal lg:mb-4 md:mb-3 '> Mobile number <span className=' text-gray-600 text-xs font-bold'>{mobile} </span></h3>
