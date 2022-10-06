@@ -67,8 +67,8 @@ function RightOtp({mobile,time,reset, login}: RightOtpProps) {
        />
       
       <h3 className='mb-1  font-sans font-bold lg:mb-1 md:mb-2 text-sm md:text-base  lg:text-sm'>{time}</h3>
-      <button onClick={toastSuccess} className=" bg-greenBG h-[40px] w-[300px] lg:h-[59px] lg:w-[353px] md:h-[59px] md:w-[253px] md:mb-4 text-white font-['Montserrat_Regular'] font-semibold text-base rounded-md lg:mb-5">{login}</button>
-      <h3 onClick={toastResent} className=" cursor-pointer  text-resetText font-extrabold text-sm font-['Montserrat_Regular'] pl-[36%] lg:pl-[40%] md:pl-[35%]">{reset}</h3>
+      <button onClick={toastSuccess} className=" bg-greenBG h-[40px] w-[300px] lg:h-[59px] lg:w-[353px] md:h-[59px] md:w-[253px] md:mb-4 text-white font-semibold text-base rounded-md lg:mb-5">{login}</button>
+      <h3 onClick={toastResent} className=" cursor-pointer  text-resetText font-bold text-sm  pl-[36%] lg:pl-[40%] md:pl-[35%]">{reset}</h3>
       <ToastContainer
         position="top-center"
         autoClose={5000}
