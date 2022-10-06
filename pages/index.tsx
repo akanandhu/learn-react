@@ -52,7 +52,7 @@ const Home: NextPage = () => {
           <button className='h-[100px] w-[100px] bg-white text-white hover:border-2 ml-5 mt-5 rounded-xl bg-gradient-to-r from-[#F85750] to-[#A73F3A]' onClick={firstProject}>Pages</button>
         <button className='h-[100px] w-[100px] bg-white text-white hover:border-2 ml-5 mt-5 rounded-xl bg-gradient-to-r from-[#F39C12] to-[#9C6B1E]' onClick={secondProject}>Pages</button>
         <button className='h-[100px] w-[100px] bg-white text-white hover:border-2 ml-5 mt-5 rounded-xl bg-gradient-to-r from-[#7F8CF1] to-[#444E9C]' onClick={thirdProject}>Card CSS</button>
-        <button className='h-[100px] w-[100px] bg-white text-white hover:border-2 ml-5 mt-5 rounded-xl bg-gradient-to-r from-[#7F8CF1] to-[#444E9C]' onClick={fourthProject}>Card Tailwind</button>
+        <button className='h-[100px] w-[100px] bg-white text-white hover:border-2 ml-5 mt-5 rounded-xl bg-gradient-to-r from-[#7F8CF1] to-[#444E9C]' onClick={fourthProject}>Card</button>
         <button className='h-[100px] w-[100px] bg-white text-white hover:border-2 ml-5 mt-5 rounded-xl bg-gradient-to-r from-[#9459D7] to-[#4A3AA7]' onClick={fifthProject}>Login</button>
         <button className='h-[100px] w-[100px] bg-white text-white hover:border-2 ml-5 mt-5 rounded-xl  bg-gradient-to-r from-[#F85750] to-[#A73F3A] ' onClick={sixthProject}>SignUp</button>
         </div>
