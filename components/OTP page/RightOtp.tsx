@@ -3,7 +3,15 @@ import { useState } from 'react';
 import OtpInput from 'react-otp-input'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useForm, Controller, SubmitHandler } from 'react-hook-form'
 
+import axios from 'axios';
+
+
+interface IFormInput {
+  otpNum : string,
+}
+ 
 type RightOtpProps = {
   mobile : '+91 91828202029',
   time : '00:45',
@@ -13,7 +21,16 @@ type RightOtpProps = {
 
 
 function RightOtp({mobile,time,reset, login}: RightOtpProps) {
+
   
+  
+
+
+  const onSubmit: SubmitHandler<any> = data => {
+    console.log(data)
+
+  }
+
   const toastResent = () => {
     toast.info('OTP resent successfully')
   }
@@ -41,8 +58,12 @@ function RightOtp({mobile,time,reset, login}: RightOtpProps) {
     setOtp(otp);
   }
   const toastSuccess = () => {
-    toast.success("You have entered the OTP : "+ otp);
+    toast.success("You have entered the OTP : " + otp);
   }
+
+  const { control, handleSubmit } = useForm();
+  
+
 
   
   return (
@@ -56,15 +77,26 @@ function RightOtp({mobile,time,reset, login}: RightOtpProps) {
       <h3 className=' font-sans font-normal text-grayFont'>Enter the OTP sent to the</h3>
       <h3 className=' font-sans text-grayFont font-normal lg:mb-4 md:mb-3 '> Mobile number <span className=' text-gray-600 text-xs font-bold'>{mobile} </span></h3>
       </div>
+      <form onSubmit={handleSubmit(onSubmit)}>
+      <Controller
+        name="otpNum"
+        control={control}
+        defaultValue=""
+        render={({ field }) =>  (
+          <OtpInput 
+          value={otp}
+          numInputs={4} 
+          separator={<span></span>}
+          containerStyle={boxStyle}
+          inputStyle={inputStyle}
+          onChange={handleChange}
+          {...field} />
+    
+        )  }
+      />
+
       
-      <OtpInput 
-      value={otp}
-      numInputs={4} 
-      separator={<span></span>}
-      containerStyle={boxStyle}
-      inputStyle={inputStyle}
-      onChange={handleChange}
-       />
+       
       
       <h3 className='mb-1  font-sans font-bold lg:mb-1 md:mb-2 text-sm md:text-base  lg:text-sm'>{time}</h3>
       <button onClick={toastSuccess} className=" bg-greenBG h-[40px] w-[300px] lg:h-[59px] lg:w-[353px] md:h-[59px] md:w-[253px] md:mb-4 text-white font-semibold text-base rounded-md lg:mb-5">{login}</button>
@@ -80,6 +112,9 @@ function RightOtp({mobile,time,reset, login}: RightOtpProps) {
         draggable
         pauseOnHover 
         />
+        
+        
+        </form>
     </div>
     </div>
     </div>

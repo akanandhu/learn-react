@@ -1,6 +1,7 @@
 import { useForm } from 'react-hook-form'
 import {string,number,object} from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { useRouter } from 'next/router';
 type SignUpRightProps ={
   heading : 'Signup',
   
@@ -23,12 +24,23 @@ function SignUpRight({heading} :SignUpRightProps) {
 
   
   const schema = object({
-    mobile : string().required('Mobile Number is Required')
+    phone : string().required('Mobile Number is Required')
+    .max(10,'10 digits is the limit')
+    .min(10, '10 digits required'),
+    studentName : string().required('Student Name is Required')
+    .max(20, 'Limit Exceeded')
+    .min(1, 'Enter the name'),
+    studentEmail : string().required('Enter Email id properly')
+    .max(25,'Too much Limit')
+    .min(2,'Enter correct Email')
+
+
    })
-  const { register, handleSubmit } = useForm<FormValues>({
+  const { register, handleSubmit ,formState: { errors } } = useForm<FormValues>({
     resolver: yupResolver(schema),
   });
-
+  
+const router = useRouter();
 
   return ( 
     <div className='pl-[15%] pt-[4%] md:mr-[5%] md:pt-[2%] md:pr-[20%] md:pb-5 md:pl-[50%] md:mb-10   lg:pl-[38%] lg:pr-[32%] lg:pt-[19%] lg:pb-[10%] lg:mb-7 lg:flex lg:flex-1 lg:mt-10  '>
@@ -38,23 +50,43 @@ function SignUpRight({heading} :SignUpRightProps) {
            <div className='flex flex-col relative gap-5  '>
             <label className=" font-semibold  text-3xl mb-4 lg:text-3xl  lg:mb-8 lg:leading-3 md:text-3xl md:mb-6  md:font-semibold  md:font-mont-bold lg:font-semibold " > {heading} </label>
             <input  {...register("phone", {required:'This is required' , minLength: {value: 10, message: "Enter the correct Mobile Number"}} )} placeholder='Phone number' type='number' className=" lg:flex   placeholder:text-extrabold  font-semibold   md:font-semibold  lg:font-semibold lg: mb-5 w-[100%] lg:w-[100%] md:w-[100%] h-[56px] border-[2px] rounded-[10px] placeholder:px-0 placeholder:text-placeText p-5 "></input>
-              
+            {errors.phone?.message && <p className='text-red-500 text-sm p-2'>{errors.phone?.message}</p>}
             <input {...register("studentName", {required: true })} placeholder='Student name' className="font-mont-bold font-semibold md:font-mont-bold md:font-semibold lg:font-semibold  mb-5  h-[56px]  lg:w-[100%] md:w-[100%] w-[100%] border-[2px] rounded-[10px] placeholder:px-0 placeholder:text-placeText p-5"></input>
+            {errors.studentName?.message && <p className='text-red-500 text-sm p-2'>{errors.studentName?.message}</p>}
             <input {...register("studentEmail")} placeholder='Student Email'  className="font-mont-bold font-semibold md:font-mont-bold md:font-semibold lg:font-semibold  mb-5  h-[56px] w-[100%] lg:w-[100%] md:w-[100%] border-[2px] rounded-[10px] placeholder:px-0 placeholder:text-placeText p-5"></input>
+            {errors.studentEmail?.message && <p className='text-red-500 text-sm p-2'>{errors.studentEmail?.message}</p>}
            </div>
            <div>
             <label className='text-lg font-mont-bold font-semibold md:font-mont-bold md:font-semibold lg:font-semibold '>Select Class</label>
             <div className='flex flex-row mt-5 pl-2 '>
-            <button {...register("studentClass")}  className= ' font-mont-bold font-semibold md:font-mont-bold md:font-semibold lg:font-normal  bg-white border-slate-400 border-[3px] w-[120px] h-[43px] mr-5 rounded-[60px] text-placeText '>Plus One</button>
-            <button {...register("studentClass")}  className=' font-mont-bold font-semibold md:font-mont-bold md:font-semibold lg:font-normal  bg-white border-slate-400 border-[3px] w-[120px] h-[43px] rounded-[60px] text-placeText'>Plus Two</button> 
-            
-            </div>
-            <button className='font-semibold bg-greenBG h-[60px] w-[90%] mt-6 rounded-xl md:bg-greenBG md:h-[80px] md:w-[100%] md:mt-6 md:mr-5 md:rounded-xl lg:bg-greenBG lg:h-[80px] lg:w-[500px] lg:mt-6 lg:rounded-[10px] text-xl text-white'
-            onClick={()=> {
-              handleSubmit((data) => {
-              console.log(data);
-              
-            })}}>Signup</button>
+              <ul className="grid gap-6 w-[50%] md:grid-cols-2">
+                 <li>
+                     <input {...register("studentClass", {required: true })} type="radio" id="hosting-small" name="hosting" value="plus-one" className="hidden peer" required></input>
+                     <label htmlFor="hosting-small" className="inline-flex justify-between items-center p-1 pl-4 w-full text-black bg-boxBG rounded-2xl border-2 border-boxBorder cursor-pointer dark:hover:text-gray-300 dark:border-boxBorder dark:peer-checked:text-black peer-checked:border-greenBG peer-checked:text-blue-600 hover:text-gray-600 hover:bg-greenBG dark:text-gray-400 dark:bg-boxBG dark:hover:bg-greenBG">                           
+                     <div className="flex">
+                     <div className="w-full text-lg font-semibold">Plus One</div>
+                     
+                    </div>
+                   </label>
+                  </li>
+             <li>
+                 <input {...register("studentClass", {required: true })} type="radio" id="hosting-big" name="hosting" value="plus-two" className="hidden peer"></input>
+                 <label htmlFor="hosting-big" className="inline-flex justify-between items-center p-1 pl-4  w-full text-black bg-boxBG rounded-2xl border-2 border-boxBorder cursor-pointer dark:hover:text-gray-300 dark:border-boxBorder dark:peer-checked:text-black peer-checked:border-greenBG peer-checked:text-blue-600 hover:text-gray-600 hover:bg-greenBG dark:text-gray-400 dark:bg-boxBG dark:hover:bg-greenBG">
+                    <div className="flex">
+                     <div className="w-[full] text-lg font-semibold">Plus Two</div>
+                     
+                 </div>
+                   
+                 </label>
+               </li>
+              </ul>
+                </div>
+            <button type='submit' className='font-semibold bg-greenBG h-[60px] w-[90%] mt-6 rounded-xl md:bg-greenBG md:h-[80px] md:w-[100%] md:mt-6 md:mr-5 md:rounded-xl lg:bg-greenBG lg:h-[80px] lg:w-[500px] lg:mt-6 lg:rounded-[10px] text-xl text-white'
+            // onClick={nextPage => {
+            //   router.push('/otppage/otpPage')
+            // }}
+            >
+            Signup</button>
             
      
             <h3 className='flex flex-1 justify-start text-[16px] font-mont-bold font-semibold md:font-mont-bold md:pt-[5%] md:pl-[4%] md:font-semibold lg:font-semibold lg:flex lg:text-lg md:text-sm pl-[10%]  lg:font-mont-bold pt-2 lg:pl-[25%]'>Already have an account? <span className='text-greenBG text-[16px] ml-2'> Login </span></h3>
@@ -62,8 +94,6 @@ function SignUpRight({heading} :SignUpRightProps) {
           
         </form>      
     </div>
-    
-   
   )
 }
 
