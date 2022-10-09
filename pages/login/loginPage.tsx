@@ -1,7 +1,7 @@
 import React from 'react'
 import { RightSide } from '../../components/Login/RightSide';
 import { LeftSide } from '../../components/Login/SignInLeft';
-import Signin from '../../components/Signin';
+import Signin from '../../components/Login/Signin';
 
 function loginPage() {
   return (

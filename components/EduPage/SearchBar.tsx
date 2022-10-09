@@ -1,7 +1,7 @@
 
 import search from '/public/images/search.png'
 import bell from '/public/images/bell.png'
-import user from '/public/images/user.png'
+import user from '@/components/public/images/user.png'
 import Image from 'next/image'
 function SearchBar() {
   return (
