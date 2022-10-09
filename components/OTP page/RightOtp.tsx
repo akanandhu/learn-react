@@ -66,9 +66,14 @@ function RightOtp({mobile,time,reset, login}: RightOtpProps) {
   }
   const toastSuccess = () => {
     toast.success('You have Entered the OTP :'+ otp);
+    try{
     axiosInstance.post('/auth/verify-otp/10', otp).then((res) => {
       console.log(res.data);
     })
+  }
+  catch(err){
+    console.log('Error');
+  }
   }
   const toastOTP = () => {
     toast.info(otpMessage);
@@ -78,6 +83,8 @@ function RightOtp({mobile,time,reset, login}: RightOtpProps) {
   
   const otpMessage = localStorage.getItem('message')
 
+
+  
   
   return (
     
@@ -89,7 +96,7 @@ function RightOtp({mobile,time,reset, login}: RightOtpProps) {
       <h1 className=" text-3xl lg:text-3xl lg:mb-6 md:text-3xl md:mb-4 font-semibold ">Verify OTP</h1>
       <div>
       <h3 className=' font-sans font-normal text-grayFont'>Enter the OTP sent to the</h3>
-      <h3 className=' font-sans text-grayFont font-normal lg:mb-4 md:mb-3 '> Mobile number <span className=' text-gray-600 text-xs font-bold'>{mobile} </span></h3>
+      <h3 className=' font-sans text-grayFont font-normal lg:mb-4 md:mb-3 '> Mobile number <span className=' text-gray-600 text-xs font-bold'>{localStorage.getItem('mobile')} </span></h3>
       </div>
       
       <form onSubmit={handleSubmit(onSubmit)}>

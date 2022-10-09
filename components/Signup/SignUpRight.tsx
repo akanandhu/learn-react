@@ -52,6 +52,7 @@ const router = useRouter();
         <form onSubmit={handleSubmit((data) => {
               
               const details = {
+                
                 name : data.studentName,
                 email : data.studentEmail,
                 default_segment_id : data.default_segment_id,
@@ -61,7 +62,7 @@ const router = useRouter();
                 dob : '1998/05/25',
                 
               }
-              
+              console.log(data)
               try{
                 axiosInstance.post('/users', details ).then((res) => {
                   console.log(res);
