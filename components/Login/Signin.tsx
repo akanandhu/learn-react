@@ -5,6 +5,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useState } from 'react'
 import Router from 'next/router';
 import { useRouter } from 'next/router'
+
 type SigninProps = {
   text: string,
   label : string,
@@ -17,6 +18,8 @@ type NumValues = {
 
 
 function Signin({text,label,placeholder} :SigninProps) {
+
+
   const schema = object({
     mobile : string().required('Mobile Number is Required')
     .max(10,"maximum is 10")
@@ -73,11 +76,16 @@ const router = useRouter()
                 device_type : 'ios',
                 firebase_token : 'vvvvvvv', }
                 console.log(mobile);
+                localStorage.setItem('mobile', data.mobile);
 
                 try{
                   axiosInstance.post('/login', mobile ).then((res) => {
-                    console.log(res);
+
+                    console.log(res.data.message);
+                   localStorage.setItem('message', res.data.message);
+                    
                     router.push('/otppage/otpPage')
+                    
                   });
                   
                   

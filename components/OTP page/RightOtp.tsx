@@ -4,16 +4,21 @@ import OtpInput from 'react-otp-input'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useForm, Controller, SubmitHandler } from 'react-hook-form'
-
+import { yupResolver } from '@hookform/resolvers/yup';
 import axios from 'axios';
+import { string } from 'yup';
+import axiosInstance from '../Axios/AxiosIntercept';
+
 
 
 interface IFormInput {
-  otpNum : string,
+  otp : string,
+  client_id: 6 ,
+
 }
  
 type RightOtpProps = {
-  mobile : '+91 91828202029',
+  mobile : string,
   time : '00:45',
   reset : 'Resent OTP',
   login : 'Login',
@@ -27,8 +32,10 @@ function RightOtp({mobile,time,reset, login}: RightOtpProps) {
 
 
   const onSubmit: SubmitHandler<any> = data => {
+    
     console.log(data)
-
+    
+    
   }
 
   const toastResent = () => {
@@ -58,15 +65,22 @@ function RightOtp({mobile,time,reset, login}: RightOtpProps) {
     setOtp(otp);
   }
   const toastSuccess = () => {
-    toast.success("You have entered the OTP : " + otp);
+    toast.success('You have Entered the OTP :'+ otp);
+    axiosInstance.post('/auth/verify-otp/10', otp).then((res) => {
+      console.log(res.data);
+    })
+  }
+  const toastOTP = () => {
+    toast.info(otpMessage);
   }
 
   const { control, handleSubmit } = useForm();
   
-
+  const otpMessage = localStorage.getItem('message')
 
   
   return (
+    
     <div className=' w-[100%] flex justify-center pt-[5%] lg:w-[44%] lg:h-[100%] lg:flex lg:justify-center lg:align-middle lg:pt-[10%] md:w-[44%] md:h-[100%] md:flex md:justify-center md:pt-[20%]  '>
     <div className=' w-[100%] lg:w-[600px] lg:h-[100%] overflow-x-hidden  '>
     <div className=' flex justify-center lg:flex lg:justify-center lg:align-middle  lg:w-[100%] pb-5  '>
@@ -77,29 +91,22 @@ function RightOtp({mobile,time,reset, login}: RightOtpProps) {
       <h3 className=' font-sans font-normal text-grayFont'>Enter the OTP sent to the</h3>
       <h3 className=' font-sans text-grayFont font-normal lg:mb-4 md:mb-3 '> Mobile number <span className=' text-gray-600 text-xs font-bold'>{mobile} </span></h3>
       </div>
+      
       <form onSubmit={handleSubmit(onSubmit)}>
-      <Controller
-        name="otpNum"
-        control={control}
-        defaultValue=""
-        render={({ field }) =>  (
-          <OtpInput 
+      <OtpInput 
           value={otp}
           numInputs={4} 
           separator={<span></span>}
           containerStyle={boxStyle}
           inputStyle={inputStyle}
           onChange={handleChange}
-          {...field} />
-    
-        )  }
-      />
+          />
 
       
        
       
       <h3 className='mb-1  font-sans font-bold lg:mb-1 md:mb-2 text-sm md:text-base  lg:text-sm'>{time}</h3>
-      <button onClick={toastSuccess} className=" bg-greenBG h-[40px] w-[300px] lg:h-[59px] lg:w-[353px] md:h-[59px] md:w-[253px] md:mb-4 text-white font-semibold text-base rounded-md lg:mb-5">{login}</button>
+      <button type='submit' onClick={toastSuccess} className=" bg-greenBG h-[40px] w-[300px] lg:h-[59px] lg:w-[353px] md:h-[59px] md:w-[253px] md:mb-4 text-white font-semibold text-base rounded-md lg:mb-5">{login}</button>
       <h3 onClick={toastResent} className=" cursor-pointer  text-resetText font-semibold text-sm  pl-[36%] lg:pl-[40%] md:pl-[35%]">{reset}</h3>
       <ToastContainer
         position="top-center"
@@ -113,7 +120,7 @@ function RightOtp({mobile,time,reset, login}: RightOtpProps) {
         pauseOnHover 
         />
         
-        
+        <button onClick={toastOTP}>Get OTP </button>
         </form>
     </div>
     </div>

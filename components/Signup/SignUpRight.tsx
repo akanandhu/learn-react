@@ -2,7 +2,11 @@ import { useForm } from 'react-hook-form'
 import {string,number,object} from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useRouter } from 'next/router';
-type SignUpRightProps ={
+import axios from 'axios';
+import axiosInstance from '../Axios/AxiosIntercept';
+
+
+type SignUpRightProps = {
   heading : 'Signup',
   
 
@@ -13,7 +17,8 @@ type FormValues = {
   phone : number,
   studentName : string,
   studentEmail : string,
-  studentClass : number,
+  default_segment_id : number,
+  
 
 }
 
@@ -36,7 +41,7 @@ function SignUpRight({heading} :SignUpRightProps) {
 
 
    })
-  const { register, handleSubmit ,formState: { errors } } = useForm<FormValues>({
+  const { register, handleSubmit ,formState: { errors }, setValue } = useForm<FormValues>({
     resolver: yupResolver(schema),
   });
   
@@ -45,7 +50,33 @@ const router = useRouter();
   return ( 
     <div className='pl-[15%] pt-[4%] md:mr-[5%] md:pt-[2%] md:pr-[20%] md:pb-5 md:pl-[50%] md:mb-10   lg:pl-[38%] lg:pr-[32%] lg:pt-[19%] lg:pb-[10%] lg:mb-7 lg:flex lg:flex-1 lg:mt-10  '>
         <form onSubmit={handleSubmit((data) => {
-              console.log(data);
+              
+              const details = {
+                name : data.studentName,
+                email : data.studentEmail,
+                default_segment_id : data.default_segment_id,
+                collage : 'cas',
+                profile_picture : 'profile_picture/1654246701dd1d11dcaca18ccc8f329b8a5dd5aa67.jpeg',
+                address : 'address',
+                dob : '1998/05/25',
+                
+              }
+              
+              try{
+                axiosInstance.post('/users', details ).then((res) => {
+                  console.log(res);
+                 
+                });
+                
+                
+              }catch(err) {
+                console.log(errors)
+              }
+              
+            
+
+
+
         })} className=' justify-center md:mr-5 h-[100%] w-[100%]  md:h-[100%] md:w-[80%] md:flex md:flex-col lg:pt-28  lg:ml-12  lg:pl-20 lg:pb-28 lg:pr-20 md:justify-center lg:h-[90%] lg:w-[100%] lg:flex lg:flex-col lg:justify-center '>
            <div className='flex flex-col relative gap-5  '>
             <label className=" font-semibold  text-3xl mb-4 lg:text-3xl  lg:mb-8 lg:leading-3 md:text-3xl md:mb-6  md:font-semibold  md:font-mont-bold lg:font-semibold " > {heading} </label>
@@ -61,7 +92,20 @@ const router = useRouter();
             <div className='flex flex-row mt-5 pl-2 '>
               <ul className="grid gap-6 w-[50%] md:grid-cols-2">
                  <li>
-                     <input {...register("studentClass", {required: true })} type="radio" id="hosting-small" name="hosting" value="plus-one" className="hidden peer" required></input>
+                     <input 
+                     {...register("default_segment_id", {required: true })} 
+                     type="radio" id="hosting-small" 
+                     name="hosting" value="plus-one" 
+                     className="hidden peer"
+                      
+                      onClick={() => {
+                        setValue('default_segment_id', 1)
+                        
+                      }}
+                      >
+
+
+                      </input>
                      <label htmlFor="hosting-small" className="inline-flex justify-between items-center p-1 pl-4 w-full text-black bg-boxBG rounded-2xl border-2 border-boxBorder cursor-pointer dark:hover:text-gray-300 dark:border-boxBorder dark:peer-checked:text-black peer-checked:border-greenBG peer-checked:text-blue-600 hover:text-gray-600 hover:bg-greenBG dark:text-gray-400 dark:bg-boxBG dark:hover:bg-greenBG">                           
                      <div className="flex">
                      <div className="w-full text-lg font-semibold">Plus One</div>
@@ -69,8 +113,21 @@ const router = useRouter();
                     </div>
                    </label>
                   </li>
-             <li>
-                 <input {...register("studentClass", {required: true })} type="radio" id="hosting-big" name="hosting" value="plus-two" className="hidden peer"></input>
+                  <li>
+                 <input {...register("default_segment_id",
+                  {required: true })} 
+                  type="radio" 
+                  id="hosting-big" 
+                  name="hosting"
+                   value="plus-two"
+                    className="hidden peer"
+                    onClick={() => {
+                      setValue('default_segment_id', 2)
+                    }}
+                    >
+
+
+                    </input>
                  <label htmlFor="hosting-big" className="inline-flex justify-between items-center p-1 pl-4  w-full text-black bg-boxBG rounded-2xl border-2 border-boxBorder cursor-pointer dark:hover:text-gray-300 dark:border-boxBorder dark:peer-checked:text-black peer-checked:border-greenBG peer-checked:text-blue-600 hover:text-gray-600 hover:bg-greenBG dark:text-gray-400 dark:bg-boxBG dark:hover:bg-greenBG">
                     <div className="flex">
                      <div className="w-[full] text-lg font-semibold">Plus Two</div>
@@ -82,9 +139,7 @@ const router = useRouter();
               </ul>
                 </div>
             <button type='submit' className='font-semibold bg-greenBG h-[60px] w-[90%] mt-6 rounded-xl md:bg-greenBG md:h-[80px] md:w-[100%] md:mt-6 md:mr-5 md:rounded-xl lg:bg-greenBG lg:h-[80px] lg:w-[500px] lg:mt-6 lg:rounded-[10px] text-xl text-white'
-            // onClick={nextPage => {
-            //   router.push('/otppage/otpPage')
-            // }}
+            
             >
             Signup</button>
             
