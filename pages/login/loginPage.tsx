@@ -3,7 +3,9 @@ import { RightSide } from '../../components/Login/RightSide';
 import { LeftSide } from '../../components/Login/SignInLeft';
 import Signin from '../../components/Login/Signin';
 
+
 function loginPage() {
+  
   return (
     <div className=' md:h-[100%] md:w-[100%]  lg:h-[100%] lg:w-[100%] lg:flex lg:flex-row md:flex md:flex-row flex flex-col'>
       <LeftSide />

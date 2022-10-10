@@ -29,8 +29,9 @@ type RightOtpProps = {
 
 function RightOtp({mobile,time,reset, login}: RightOtpProps) {
 
-
+  const [isLoading, setIsLoading] = useState(false);
   const toastSuccess = () => {
+    setIsLoading(true)
     toast.success('Successfully Verified OTP')
   }
   
@@ -85,6 +86,23 @@ const router = useRouter()
   }
 
   const toastResent = () => {
+    try{
+      setIsLoading(false)
+      const phoneNumber = localStorage.getItem('mobile');
+      const mobile = {
+        mobile : phoneNumber,
+        client_id : 6,
+        device_id : '3d0cd218875efb07h',
+        device_type : 'ios',
+        firebase_token : 'vvvvvvv', }
+
+      axiosInstance.post('/login', mobile).then((res) => {
+        console.log(res.data)
+        
+      })
+    }catch(err){
+      console.log('Error')
+    }
     toast.info('OTP resent successfully')
     
   }
@@ -115,7 +133,7 @@ const router = useRouter()
   const toastOTP = () => {
     if (typeof window !== 'undefined') {
       const otpMessage = localStorage.getItem('message')
-    toast.info(otpMessage);
+       toast.info(otpMessage);
     
     }
   }
@@ -132,7 +150,8 @@ type mobileNumberProps ={
  
   
 
-
+  
+  
   
   
   return (
@@ -177,7 +196,10 @@ type mobileNumberProps ={
       
       <h3 className='mb-1  font-sans font-bold lg:mb-1 md:mb-2 text-sm md:text-base  lg:text-sm'>{time}</h3>
       
-      <button type='submit' onClick={toastSuccess}  className=" bg-greenBG h-[40px] w-[300px] lg:h-[59px] lg:w-[353px] md:h-[59px] md:w-[253px] md:mb-4 text-white font-semibold text-base rounded-md lg:mb-5">{login}</button>
+      <button type='submit' onClick={toastSuccess} 
+       className=" focus:cursor-not-allowed focus:bg-gray-400 bg-greenBG h-[40px] w-[300px] lg:h-[59px] lg:w-[353px] md:h-[59px] md:w-[253px] md:mb-4 text-white font-semibold text-base rounded-md lg:mb-5">
+        {isLoading? '...Loading' : 'Login'}
+        </button>
       <h3 onClick={toastResent} className=" cursor-pointer  text-resetText font-semibold text-sm  pl-[36%] lg:pl-[40%] md:pl-[35%]">{reset}</h3>
       <ToastContainer
         position="top-center"

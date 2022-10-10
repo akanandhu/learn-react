@@ -4,6 +4,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useRouter } from 'next/router';
 import axios from 'axios';
 import axiosInstance from '../Axios/AxiosIntercept';
+import { useState } from 'react'
 
 
 type SignUpRightProps = {
@@ -52,10 +53,12 @@ if (typeof window !== 'undefined') {
   const phone = localStorage.getItem('phone');
 }
 
- 
+ const [isLoading, setIsLoading] = useState(false)
+
   return ( 
     <div className='pl-[15%] pt-[4%] md:mr-[5%] md:pt-[2%] md:pr-[20%] md:pb-5 md:pl-[50%] md:mb-10   lg:pl-[38%] lg:pr-[32%] lg:pt-[19%] lg:pb-[10%] lg:mb-7 lg:flex lg:flex-1 lg:mt-10  '>
         <form onSubmit={handleSubmit((data) => {
+              setIsLoading(true)
               console.log('data', data);
               const details = {
                 name : data.studentName,
@@ -114,7 +117,7 @@ if (typeof window !== 'undefined') {
 
 
                       </input>
-                     <label htmlFor="hosting-small" className="inline-flex justify-between items-center p-1 pl-4 w-full text-black bg-boxBG rounded-2xl border-2 border-boxBorder cursor-pointer dark:hover:text-gray-300 dark:border-boxBorder dark:peer-checked:text-black peer-checked:border-greenBG peer-checked:text-blue-600 hover:text-gray-600 hover:bg-greenBG dark:text-gray-400 dark:bg-boxBG dark:hover:bg-greenBG">                           
+                     <label htmlFor="hosting-small" className=" active:border-greenBG active:border-2  inline-flex justify-between items-center p-1 pl-4 w-full text-black bg-boxBG rounded-2xl border-2 border-boxBorder cursor-pointer dark:hover:text-gray-300 dark:border-boxBorder dark:peer-checked:text-black peer-checked:border-greenBG peer-checked:text-blue-600 hover:text-gray-600 hover:bg-greenBG dark:text-gray-400 dark:bg-boxBG dark:hover:bg-greenBG">                           
                      <div className="flex">
                      <div className="w-full text-lg font-semibold">Plus One</div>
                      
@@ -146,10 +149,10 @@ if (typeof window !== 'undefined') {
                </li>
               </ul>
                 </div>
-            <button type='submit' className='font-semibold bg-greenBG h-[60px] w-[90%] mt-6 rounded-xl md:bg-greenBG md:h-[80px] md:w-[100%] md:mt-6 md:mr-5 md:rounded-xl lg:bg-greenBG lg:h-[80px] lg:w-[500px] lg:mt-6 lg:rounded-[10px] text-xl text-white'
-            
+            <button type='submit' className=' focus:cursor-not-allowed focus:bg-gray-400 font-semibold bg-greenBG h-[60px] w-[90%] mt-6 rounded-xl md:bg-greenBG md:h-[80px] md:w-[100%] md:mt-6 md:mr-5 md:rounded-xl lg:bg-greenBG lg:h-[80px] lg:w-[500px] lg:mt-6 lg:rounded-[10px] text-xl text-white'
+
             >
-            Signup</button>
+            {isLoading? '...Signing Up' : 'Signup'}</button>
             
      
             <h3 className='flex flex-1 justify-start text-[16px] font-mont-bold font-semibold md:font-mont-bold md:pt-[5%] md:pl-[4%] md:font-semibold lg:font-semibold lg:flex lg:text-lg md:text-sm pl-[10%]  lg:font-mont-bold pt-2 lg:pl-[25%]'>Already have an account? <span className='text-greenBG text-[16px] ml-2'> Login </span></h3>

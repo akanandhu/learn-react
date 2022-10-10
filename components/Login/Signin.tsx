@@ -3,7 +3,6 @@ import { useForm } from 'react-hook-form';
 import {string,number,object } from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useState } from 'react'
-import Router from 'next/router';
 import { useRouter } from 'next/router'
 
 type SigninProps = {
@@ -15,6 +14,8 @@ type NumValues = {
   mobile : string,
   
 }
+
+
 
 
 function Signin({text,label,placeholder} :SigninProps) {
@@ -59,7 +60,7 @@ function Signin({text,label,placeholder} :SigninProps) {
      return Promise.reject(error);
   }
 );
-
+const [isLoading, setIsLoading] = useState(true);
 const router = useRouter()
   return (
     
@@ -70,18 +71,20 @@ const router = useRouter()
             {errors.mobile?.message && <p className='text-red-500 text-sm p-2'>{errors.mobile?.message}</p>}
             
             <button onClick={handleSubmit((data ) => {
-              const mobile = {
-                mobile : data.mobile,
-                client_id : 6,
-                device_id : '3d0cd218875efb07h',
-                device_type : 'ios',
-                firebase_token : 'vvvvvvv', }
-                console.log(mobile);
-                localStorage.setItem('mobile', data.mobile);
+              setIsLoading(false)
+              
 
                 try{
+                  const mobile = {
+                    mobile : data.mobile,
+                    client_id : 6,
+                    device_id : '3d0cd218875efb07h',
+                    device_type : 'ios',
+                    firebase_token : 'vvvvvvv', }
+                    console.log(mobile);
+                    localStorage.setItem('mobile', data.mobile);
                   axiosInstance.post('/login', mobile ).then((res) => {
-
+                    
                     console.log(res.data);
                     localStorage.setItem('userid', res.data.user_id)
                    localStorage.setItem('message', res.data.message);
@@ -89,15 +92,17 @@ const router = useRouter()
                     router.push('/otppage/otpPage')
                     
                   });
-                  
-                  
+                
+                
                 }catch(err) {
                   console.log(errors)
                 }
                
                 
             })}
-             className= " md:mb-8 bg-loginbutton text-white rounded-lg h-[55px] w-[95%] lg:font-['Montserrat_Regular'] md:font-['Montserrat_Regular'] font-['Montserrat_Regular'] font-semibold " >{label}</button>
+             className= " focus:cursor-not-allowed focus:bg-gray-400 md:mb-8 bg-loginbutton text-white rounded-lg h-[55px] w-[95%] lg:font-['Montserrat_Regular'] md:font-['Montserrat_Regular'] font-['Montserrat_Regular'] font-semibold " >
+              {isLoading? 'Login' : '...Loading'}
+              </button>
        
         </div>
       
