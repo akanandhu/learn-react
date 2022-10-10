@@ -46,7 +46,12 @@ function SignUpRight({heading} :SignUpRightProps) {
   });
   
 const router = useRouter();
-const phone = localStorage.getItem('phone');
+
+
+if (typeof window !== 'undefined') {
+  const phone = localStorage.getItem('phone');
+}
+
  
   return ( 
     <div className='pl-[15%] pt-[4%] md:mr-[5%] md:pt-[2%] md:pr-[20%] md:pb-5 md:pl-[50%] md:mb-10   lg:pl-[38%] lg:pr-[32%] lg:pt-[19%] lg:pb-[10%] lg:mb-7 lg:flex lg:flex-1 lg:mt-10  '>

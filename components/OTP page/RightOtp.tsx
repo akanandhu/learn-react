@@ -6,7 +6,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useForm, Controller, SubmitHandler } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup';
 import axios from 'axios';
-import { string } from 'yup';
+import { object, string } from 'yup';
 import axiosInstance from '../Axios/AxiosIntercept';
 import { useRouter } from 'next/router'
 
@@ -34,8 +34,15 @@ function RightOtp({mobile,time,reset, login}: RightOtpProps) {
     toast.success('Successfully Verified OTP')
   }
   
+const scheme = object ({
+    otpNum : string().required('OTP required')
+    .max(4,'only 4 letters')
+    .min(4,'Enter Proper OTP')
+})
   
-const { control, handleSubmit, } = useForm();
+const { control, handleSubmit,formState: {errors} } = useForm({
+  // resolver: yupResolver(schema),
+});
 const router = useRouter()
 
   const onSubmit: SubmitHandler<any> = (data) => {
@@ -147,7 +154,6 @@ type mobileNumberProps ={
         control={control}
         rules={
           {
-            maxLength: 4,
             minLength: 4,
           }
         }
@@ -164,12 +170,13 @@ type mobileNumberProps ={
           />
         )}
       />
-      
-
+       
+       {/* {errors.otpNum?.message && <p className='text-red-500 text-sm p-2'>{errors.otpNum?.message}</p>} */}
       
        
       
       <h3 className='mb-1  font-sans font-bold lg:mb-1 md:mb-2 text-sm md:text-base  lg:text-sm'>{time}</h3>
+      
       <button type='submit' onClick={toastSuccess}  className=" bg-greenBG h-[40px] w-[300px] lg:h-[59px] lg:w-[353px] md:h-[59px] md:w-[253px] md:mb-4 text-white font-semibold text-base rounded-md lg:mb-5">{login}</button>
       <h3 onClick={toastResent} className=" cursor-pointer  text-resetText font-semibold text-sm  pl-[36%] lg:pl-[40%] md:pl-[35%]">{reset}</h3>
       <ToastContainer

@@ -1,5 +1,4 @@
 import React from 'react'
-import Image from 'next/image'
 import SignUpLeft from '../../components/Signup/SignUpLeft';
 import SignUpRight from '../../components/Signup/SignUpRight';
 

@@ -68,6 +68,7 @@ const router = useRouter()
             <h1 className="  md:mb-8 lg:mb-8 md:text-[3vw] lg:text-[2vw] lg:pl-[16%] text-[5vw] font-semibold  ">{text}</h1>
             <input {...register('mobile', { valueAsNumber:true }) }  type='number' placeholder={placeholder} className={` md:mb-8 bg-boxBG h-[60px] mb-4 rounded-lg pl-3 w-[95%] placeholder:text-sm placeholder:pl-0 placeholder:text-placeText placeholder:font-semibold  placeholder:pb-10 border border-solid   `}></input>
             {errors.mobile?.message && <p className='text-red-500 text-sm p-2'>{errors.mobile?.message}</p>}
+            
             <button onClick={handleSubmit((data ) => {
               const mobile = {
                 mobile : data.mobile,
