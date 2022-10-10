@@ -81,7 +81,8 @@ const router = useRouter()
                 try{
                   axiosInstance.post('/login', mobile ).then((res) => {
 
-                    console.log(res.data.message);
+                    console.log(res.data);
+                    localStorage.setItem('userid', res.data.user_id)
                    localStorage.setItem('message', res.data.message);
                     
                     router.push('/otppage/otpPage')

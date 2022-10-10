@@ -8,6 +8,8 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import axios from 'axios';
 import { string } from 'yup';
 import axiosInstance from '../Axios/AxiosIntercept';
+import { useRouter } from 'next/router'
+
 
 
 
@@ -27,19 +29,57 @@ type RightOtpProps = {
 
 function RightOtp({mobile,time,reset, login}: RightOtpProps) {
 
+
+  const toastSuccess = () => {
+    toast.success('Successfully Verified OTP')
+  }
   
   
+const { control, handleSubmit, } = useForm();
+const router = useRouter()
 
-
-  const onSubmit: SubmitHandler<any> = data => {
+  const onSubmit: SubmitHandler<any> = (data) => {
     
-    console.log(data)
+    
+    
+    console.log(data.otpNum);
+    try{
+      if (typeof window !== 'undefined') {
+      const userid = localStorage.getItem('userid',)
+
+      const otpDetail = {
+        client_id: 6,
+        otp : data.otpNum,
+      }
+      
+    axiosInstance.post(`/auth/verify-otp/${userid}`, otpDetail ).then((res) => {
+      console.log(res.data);
+      if (typeof window !== 'undefined') {
+        localStorage.setItem('bearer_token', res.data.token.access_token);
+      }
+      
+
+      if(res.data.details===false){
+        
+        router.push('/signup/signUp');
+
+      }
+      else{
+        
+        router.push('/EduApp/eduApp');
+      }
+    })
+  }}
+  catch(err){
+    console.log('Error');
+  }
     
     
   }
 
   const toastResent = () => {
     toast.info('OTP resent successfully')
+    
   }
   
   const boxStyle = {
@@ -64,24 +104,26 @@ function RightOtp({mobile,time,reset, login}: RightOtpProps) {
   const handleChange = (otp : string) => {
     setOtp(otp);
   }
-  const toastSuccess = () => {
-    toast.success('You have Entered the OTP :'+ otp);
-    try{
-    axiosInstance.post('/auth/verify-otp/10', otp).then((res) => {
-      console.log(res.data);
-    })
-  }
-  catch(err){
-    console.log('Error');
-  }
-  }
-  const toastOTP = () => {
-    toast.info(otpMessage);
-  }
-
-  const { control, handleSubmit } = useForm();
   
-  const otpMessage = localStorage.getItem('message')
+  const toastOTP = () => {
+    if (typeof window !== 'undefined') {
+      const otpMessage = localStorage.getItem('message')
+    toast.info(otpMessage);
+    
+    }
+  }
+type mobileNumberProps ={
+  mobileNumber : any,
+}
+
+  const mobileNumber = (mobileNumber:mobileNumberProps) => {
+    if (typeof window !== 'undefined') {
+      const mobileNumber =  localStorage.getItem('mobile') 
+    }
+  }
+  
+ 
+  
 
 
   
@@ -96,24 +138,39 @@ function RightOtp({mobile,time,reset, login}: RightOtpProps) {
       <h1 className=" text-3xl lg:text-3xl lg:mb-6 md:text-3xl md:mb-4 font-semibold ">Verify OTP</h1>
       <div>
       <h3 className=' font-sans font-normal text-grayFont'>Enter the OTP sent to the</h3>
-      <h3 className=' font-sans text-grayFont font-normal lg:mb-4 md:mb-3 '> Mobile number <span className=' text-gray-600 text-xs font-bold'>{localStorage.getItem('mobile')} </span></h3>
+      <h3 className=' font-sans text-grayFont font-normal lg:mb-4 md:mb-3 '> Mobile number <span className=' text-gray-600 text-xs font-bold'></span></h3>
       </div>
       
       <form onSubmit={handleSubmit(onSubmit)}>
-      <OtpInput 
-          value={otp}
+      <Controller
+        name="otpNum"
+        control={control}
+        rules={
+          {
+            maxLength: 4,
+            minLength: 4,
+          }
+        }
+        render={({ field }) =>  (
+          <OtpInput 
+          // value={{otp}}
           numInputs={4} 
           separator={<span></span>}
           containerStyle={boxStyle}
           inputStyle={inputStyle}
-          onChange={handleChange}
+          {...field}
+          
+          // onChange={handleChange}
           />
+        )}
+      />
+      
 
       
        
       
       <h3 className='mb-1  font-sans font-bold lg:mb-1 md:mb-2 text-sm md:text-base  lg:text-sm'>{time}</h3>
-      <button type='submit' onClick={toastSuccess} className=" bg-greenBG h-[40px] w-[300px] lg:h-[59px] lg:w-[353px] md:h-[59px] md:w-[253px] md:mb-4 text-white font-semibold text-base rounded-md lg:mb-5">{login}</button>
+      <button type='submit' onClick={toastSuccess}  className=" bg-greenBG h-[40px] w-[300px] lg:h-[59px] lg:w-[353px] md:h-[59px] md:w-[253px] md:mb-4 text-white font-semibold text-base rounded-md lg:mb-5">{login}</button>
       <h3 onClick={toastResent} className=" cursor-pointer  text-resetText font-semibold text-sm  pl-[36%] lg:pl-[40%] md:pl-[35%]">{reset}</h3>
       <ToastContainer
         position="top-center"
@@ -128,6 +185,7 @@ function RightOtp({mobile,time,reset, login}: RightOtpProps) {
         />
         
         <button onClick={toastOTP}>Get OTP </button>
+        
         </form>
     </div>
     </div>

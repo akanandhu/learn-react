@@ -46,13 +46,13 @@ function SignUpRight({heading} :SignUpRightProps) {
   });
   
 const router = useRouter();
-
+const phone = localStorage.getItem('phone');
+ 
   return ( 
     <div className='pl-[15%] pt-[4%] md:mr-[5%] md:pt-[2%] md:pr-[20%] md:pb-5 md:pl-[50%] md:mb-10   lg:pl-[38%] lg:pr-[32%] lg:pt-[19%] lg:pb-[10%] lg:mb-7 lg:flex lg:flex-1 lg:mt-10  '>
         <form onSubmit={handleSubmit((data) => {
-              
+              console.log('data', data);
               const details = {
-                
                 name : data.studentName,
                 email : data.studentEmail,
                 default_segment_id : data.default_segment_id,
@@ -62,16 +62,17 @@ const router = useRouter();
                 dob : '1998/05/25',
                 
               }
-              console.log(data)
+              console.log(details);
               try{
+                
                 axiosInstance.post('/users', details ).then((res) => {
                   console.log(res);
                  
                 });
-                
+                router.push('/EduApp/eduApp')
                 
               }catch(err) {
-                console.log(errors)
+                console.log('error')
               }
               
             
@@ -93,8 +94,9 @@ const router = useRouter();
             <div className='flex flex-row mt-5 pl-2 '>
               <ul className="grid gap-6 w-[50%] md:grid-cols-2">
                  <li>
-                     <input 
-                     {...register("default_segment_id", {required: true })} 
+                     <input {...register("default_segment_id",
+                  {required: true })}
+                     
                      type="radio" id="hosting-small" 
                      name="hosting" value="plus-one" 
                      className="hidden peer"
@@ -115,8 +117,8 @@ const router = useRouter();
                    </label>
                   </li>
                   <li>
-                 <input {...register("default_segment_id",
-                  {required: true })} 
+                 <input  {...register("default_segment_id",
+                  {required: true })}
                   type="radio" 
                   id="hosting-big" 
                   name="hosting"
