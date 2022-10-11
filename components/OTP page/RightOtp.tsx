@@ -10,13 +10,9 @@ import { object, string } from 'yup';
 import axiosInstance from '../Axios/AxiosIntercept';
 import { useRouter } from 'next/router'
 
-
-
-
 interface IFormInput {
   otp : string,
   client_id: 6 ,
-
 }
  
 type RightOtpProps = {

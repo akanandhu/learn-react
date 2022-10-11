@@ -4,7 +4,13 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useRouter } from 'next/router';
 import axios from 'axios';
 import axiosInstance from '../Axios/AxiosIntercept';
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+
+
+
+
+
+
 
 
 type SignUpRightProps = {
@@ -27,6 +33,15 @@ type FormValues = {
 
 
 function SignUpRight({heading} :SignUpRightProps) {
+  const [course, setCourse] = useState<any[]>([]);
+
+    useEffect(() => {
+    axiosInstance.get('/segments').then((res) => {
+      console.log(res.data);
+      setCourse(res.data);
+    })
+
+    },[])
 
   
   const schema = object({
@@ -77,7 +92,7 @@ if (typeof window !== 'undefined') {
                   console.log(res);
                  
                 });
-                // router.push('/EduApp/eduApp')
+                router.push('/EduApp/eduApp')
                 
               }catch(err) {
                 console.log('error')
@@ -100,53 +115,42 @@ if (typeof window !== 'undefined') {
            <div>
             <label className='text-lg font-mont-bold font-semibold md:font-mont-bold md:font-semibold lg:font-semibold '>Select Class</label>
             <div className='flex flex-row mt-5 pl-2 '>
+            
               <ul className="grid gap-6 w-[50%] md:grid-cols-2">
-                 <li>
-                     <input {...register("default_segment_id",
-                  {required: true })}
-                     
-                     type="radio" id="hosting-small" 
-                      value="plus-one" 
-                     className="hidden peer"
-                      
-                      // onClick={() => {
-                      //   setValue('default_segment_id', 1)
-                        
-                      // }}
-                      >
 
-
-                      </input>
-                     <label htmlFor="hosting-small" className=" active:border-greenBG active:border-2  inline-flex justify-between items-center p-1 pl-4 w-full text-black bg-boxBG rounded-2xl border-2 border-boxBorder cursor-pointer dark:hover:text-gray-300 dark:border-boxBorder dark:peer-checked:text-black peer-checked:border-greenBG peer-checked:text-blue-600 hover:text-gray-600 hover:bg-greenBG dark:text-gray-400 dark:bg-boxBG dark:hover:bg-greenBG">                           
-                     <div className="flex">
-                     <div className="w-full text-lg font-semibold">Plus One</div>
-                     
-                    </div>
-                   </label>
-                  </li>
-                  <li>
-                 <input  {...register("default_segment_id",
-                  {required: true })}
-                  type="radio" 
-                  id="hosting-big" 
+                
+             {course.map((obj) => {
+              
+               return(     <li>
                   
-                   value="plus-two"
+                    <input {...register("default_segment_id",
+                 {required: true })}
+                    
+                    type="radio" id="hosting-small" 
+                     value="plus-one" 
                     className="hidden peer"
-                    // onClick={() => {
-                    //   setValue('default_segment_id', 2)
-                    // }}
-                    >
+                     >
 
 
-                    </input>
-                 <label htmlFor="hosting-big" className="inline-flex justify-between items-center p-1 pl-4  w-full text-black bg-boxBG rounded-2xl border-2 border-boxBorder cursor-pointer dark:hover:text-gray-300 dark:border-boxBorder dark:peer-checked:text-black peer-checked:border-greenBG peer-checked:text-blue-600 hover:text-gray-600 hover:bg-greenBG dark:text-gray-400 dark:bg-boxBG dark:hover:bg-greenBG">
+                     </input>
+                    <label htmlFor="hosting-small" className=" active:border-greenBG active:border-2  inline-flex justify-between items-center p-1 pl-4 w-full text-black bg-boxBG rounded-2xl border-2 border-boxBorder cursor-pointer dark:hover:text-gray-300 dark:border-boxBorder dark:peer-checked:text-black peer-checked:border-greenBG peer-checked:text-blue-600 hover:text-gray-600 hover:bg-greenBG dark:text-gray-400 dark:bg-boxBG dark:hover:bg-greenBG">                           
                     <div className="flex">
-                     <div className="w-[full] text-lg font-semibold">Plus Two</div>
-                     
-                 </div>
-                   
-                 </label>
-               </li>
+
+                    <div className="w-full text-lg font-semibold">{obj.name}</div>
+                    
+
+                   </div>
+                  </label>
+                 </li>
+
+             )})}
+                 
+
+
+
+
+
+                  
               </ul>
                 </div>
             <button type='submit' className=' focus:cursor-not-allowed focus:bg-gray-400 font-semibold bg-greenBG h-[60px] w-[90%] mt-6 rounded-xl md:bg-greenBG md:h-[80px] md:w-[100%] md:mt-6 md:mr-5 md:rounded-xl lg:bg-greenBG lg:h-[80px] lg:w-[500px] lg:mt-6 lg:rounded-[10px] text-xl text-white'
