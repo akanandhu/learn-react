@@ -77,7 +77,7 @@ if (typeof window !== 'undefined') {
                   console.log(res);
                  
                 });
-                router.push('/EduApp/eduApp')
+                // router.push('/EduApp/eduApp')
                 
               }catch(err) {
                 console.log('error')
@@ -106,13 +106,13 @@ if (typeof window !== 'undefined') {
                   {required: true })}
                      
                      type="radio" id="hosting-small" 
-                     name="hosting" value="plus-one" 
+                      value="plus-one" 
                      className="hidden peer"
                       
-                      onClick={() => {
-                        setValue('default_segment_id', 1)
+                      // onClick={() => {
+                      //   setValue('default_segment_id', 1)
                         
-                      }}
+                      // }}
                       >
 
 
@@ -129,12 +129,12 @@ if (typeof window !== 'undefined') {
                   {required: true })}
                   type="radio" 
                   id="hosting-big" 
-                  name="hosting"
+                  
                    value="plus-two"
                     className="hidden peer"
-                    onClick={() => {
-                      setValue('default_segment_id', 2)
-                    }}
+                    // onClick={() => {
+                    //   setValue('default_segment_id', 2)
+                    // }}
                     >
 
 

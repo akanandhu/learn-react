@@ -35,21 +35,20 @@ function RightOtp({mobile,time,reset, login}: RightOtpProps) {
     toast.success('Successfully Verified OTP')
   }
   
-const scheme = object ({
+const schema = object().shape({
     otpNum : string().required('OTP required')
     .max(4,'only 4 letters')
     .min(4,'Enter Proper OTP')
 })
   
 const { control, handleSubmit,formState: {errors} } = useForm({
-  // resolver: yupResolver(schema),
+  
+  resolver: yupResolver(schema),
 });
+console.log(errors);
 const router = useRouter()
 
   const onSubmit: SubmitHandler<any> = (data) => {
-    
-    
-    
     console.log(data.otpNum);
     try{
       if (typeof window !== 'undefined') {
@@ -96,7 +95,7 @@ const router = useRouter()
         device_type : 'ios',
         firebase_token : 'vvvvvvv', }
 
-      axiosInstance.post('/login', mobile).then((res) => {
+      axiosInstance.post('/auth/login', mobile).then((res) => {
         console.log(res.data)
         
       })
@@ -141,7 +140,7 @@ type mobileNumberProps ={
   mobileNumber : any,
 }
 
-  const mobileNumber = (mobileNumber:mobileNumberProps) => {
+  const mobileNumber =  (mobileNumber:mobileNumberProps) => {
     if (typeof window !== 'undefined') {
       const mobileNumber =  localStorage.getItem('mobile') 
     }
@@ -171,11 +170,11 @@ type mobileNumberProps ={
       <Controller
         name="otpNum"
         control={control}
-        rules={
-          {
-            minLength: 4,
-          }
-        }
+        // rules={
+        //   {
+        //     minLength: 4,
+        //   }
+        // }
         render={({ field }) =>  (
           <OtpInput 
           // value={{otp}}
@@ -190,13 +189,13 @@ type mobileNumberProps ={
         )}
       />
        
-       {/* {errors.otpNum?.message && <p className='text-red-500 text-sm p-2'>{errors.otpNum?.message}</p>} */}
+       {errors.otpNum?.message && <p className='text-red-500 text-sm p-2'>{`${errors.otpNum?.message}`}</p>}
       
        
       
-      <h3 className='mb-1  font-sans font-bold lg:mb-1 md:mb-2 text-sm md:text-base  lg:text-sm'>{time}</h3>
+      <h3 className='mb-1 mt-3  font-sans font-bold lg:mb-1 md:mb-2 text-sm md:text-base  lg:text-sm'>{time}</h3>
       
-      <button type='submit' onClick={toastSuccess} 
+      <button type='submit' 
        className=" focus:cursor-not-allowed focus:bg-gray-400 bg-greenBG h-[40px] w-[300px] lg:h-[59px] lg:w-[353px] md:h-[59px] md:w-[253px] md:mb-4 text-white font-semibold text-base rounded-md lg:mb-5">
         {isLoading? '...Loading' : 'Login'}
         </button>
