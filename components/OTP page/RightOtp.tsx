@@ -9,6 +9,8 @@ import axios from 'axios';
 import { object, string } from 'yup';
 import axiosInstance from '../Axios/AxiosIntercept';
 import { useRouter } from 'next/router'
+import { useMutation } from 'react-query';
+import { loginMutation } from '../Login/LoginMutate';
 
 interface IFormInput {
   otp : string,
@@ -21,6 +23,8 @@ type RightOtpProps = {
   reset : 'Resent OTP',
   login : 'Login',
 }
+
+
 
 
 function RightOtp({mobile,time,reset, login}: RightOtpProps) {
@@ -45,60 +49,90 @@ console.log(errors);
 const router = useRouter()
 
   const onSubmit: SubmitHandler<any> = (data) => {
+
     console.log(data.otpNum);
-    try{
-      if (typeof window !== 'undefined') {
-      const userid = localStorage.getItem('userid',)
+    const otpDetail:any = {
+      client_id: 6,
+      otp : data.otpNum,
+    }
 
-      const otpDetail = {
-        client_id: 6,
-        otp : data.otpNum,
-      }
+    const mutation = useMutation(otpDetail=> {
       
-    axiosInstance.post(`/auth/verify-otp/${userid}`, otpDetail ).then((res) => {
-      console.log(res.data);
-      if (typeof window !== 'undefined') {
-        localStorage.setItem('bearer_token', res.data.token.access_token);
-      }
+      const userid = localStorage.getItem('userid');
+      return( axiosInstance.post(`/auth/verify-otp/${userid}`,otpDetail).then((res) => {
+        console.log(res);
       
-
-      if(res.data.details===false){
+        localStorage.setItem('userid',res.data.user_id)
+        localStorage.setItem('message', res.data.message);
         
-        router.push('/signup/signUp');
-
-      }
-      else{
-        
-        router.push('/EduApp/eduApp');
-      }
-    })
-  }}
-  catch(err){
-    console.log('Error');
-  }
-    
-    
-  }
-
-  const toastResent = () => {
-    try{
-      setIsLoading(false)
-      const phoneNumber = localStorage.getItem('mobile');
-      const mobile = {
-        mobile : phoneNumber,
-        client_id : 6,
-        device_id : '3d0cd218875efb07h',
-        device_type : 'ios',
-        firebase_token : 'vvvvvvv', }
-
-      axiosInstance.post('/auth/login', mobile).then((res) => {
-        console.log(res.data)
+       
         
       })
-    }catch(err){
-      console.log('Error')
-    }
-    toast.info('OTP resent successfully')
+    
+      )
+    })
+    mutation.mutate(otpDetail);
+
+  //   try{
+  //     if (typeof window !== 'undefined') {
+  //     const userid = localStorage.getItem('userid',)
+
+      // const otpDetail = {
+      //   client_id: 6,
+      //   otp : data.otpNum,
+      // }
+      
+  //   axiosInstance.post(`/auth/verify-otp/${userid}`, otpDetail ).then((res) => {
+  //     console.log(res.data);
+  //     if (typeof window !== 'undefined') {
+  //       localStorage.setItem('bearer_token', res.data.token.access_token);
+  //     }
+      
+
+  //     if(res.data.details===false){
+        
+  //       router.push('/signup/signUp');
+
+  //     }
+  //     else{
+        
+  //       router.push('/EduApp/eduApp');
+  //     }
+  //   })
+  // }}
+  // catch(err){
+  //   console.log('Error');
+  // }
+    
+    
+  }
+
+
+  const mutation = useMutation(loginMutation)
+
+  const toastResent = () => {
+    const phoneNumber = localStorage.getItem('mobile');
+    const mobile = {
+      mobile : phoneNumber,
+      client_id : 6,
+      device_id : '3d0cd218875efb07h',
+      device_type : 'ios',
+      firebase_token : 'vvvvvvv', }
+    mutation.mutate(mobile);
+    
+    // try{
+    //   setIsLoading(false)
+    //   const phoneNumber = localStorage.getItem('mobile');
+      
+
+    //   axiosInstance.post('/auth/login', mobile).then((res) => {
+    //     console.log(res.data)
+        
+    //   })
+    // }catch(err){
+    //   console.log('Error')
+    // }
+    // toast.info('OTP resent successfully')
     
   }
   

@@ -4,6 +4,11 @@ import {string,number,object } from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useState } from 'react'
 import { useRouter } from 'next/router'
+import { useMutation} from 'react-query'
+import axiosInstance from '../Axios/AxiosIntercept';
+
+
+
 
 type SigninProps = {
   text: string,
@@ -33,10 +38,10 @@ function Signin({text,label,placeholder} :SigninProps) {
   });
   
  const axiosInstance = axios.create({
-    baseURL: "https://api.elearning.alpha.logidots.com/api/auth/",
+    baseURL: "https://api.elearning.alpha.logidots.com/api",
  });
  
- 
+
 
 
  axiosInstance.interceptors.request.use(
@@ -62,6 +67,21 @@ function Signin({text,label,placeholder} :SigninProps) {
 );
 const [isLoading, setIsLoading] = useState(true);
 const router = useRouter()
+
+
+const mutation = useMutation(mobile=> {
+  return( axiosInstance.post('/auth/login',mobile).then((res) => {
+    console.log(res);
+    localStorage.setItem('userid',res.data.user_id)
+    localStorage.setItem('message', res.data.message);
+    
+    router.push('/otppage/otpPage')
+    
+  })
+
+  )
+})
+
   return (
     
     <div className=' h-[70%] w-[100%] mb-0 gap-5 flex-row flex justify-center md:flex md:justify-center md:pt-[0%] md:pr-[13%] md:pl-[8%] lg:flex lg:flex-row lg:justify-center lg:pt-[25%] lg:pr-[26%] lg:pl-[16%]'>
@@ -70,33 +90,44 @@ const router = useRouter()
             <input {...register('mobile', { valueAsNumber:true }) }  type='number' placeholder={placeholder} className={` md:mb-8 bg-boxBG h-[60px] mb-4 rounded-lg pl-3 w-[95%] placeholder:text-sm placeholder:pl-0 placeholder:text-placeText placeholder:font-semibold  placeholder:pb-10 border border-solid   `}></input>
             {errors.mobile?.message && <p className='text-red-500 text-sm p-2'>{errors.mobile?.message}</p>}
             
-            <button onClick={handleSubmit((data ) => {
+            <button onClick={handleSubmit((data: { mobile: any; }) => {
+
               setIsLoading(false)
+              const mobile:any = {mobile : data.mobile,
+                client_id : 6,
+                device_id : '3d0cd218875efb07h',
+                device_type : 'ios',
+                firebase_token : 'vvvvvvv',
+                 }
+              mutation.mutate(mobile)
+              // {mutation.isSuccess? router.push('/otppage/otpPage') : console.log('FAIL') }
+
+              // try{
+                // const mobile = {
+                //   mobile : data.mobile,
+                //   client_id : 6,
+                //   device_id : '3d0cd218875efb07h',
+                //   device_type : 'ios',
+                //   firebase_token : 'vvvvvvv', }
+              //     console.log(mobile);
+                  // localStorage.setItem('mobile', data.mobile);
+              //   axiosInstance.post('/login', mobile ).then((res) => {
+                  
+              //     console.log(res.data);
+                  // localStorage.setItem('userid', res.data.user_id)
+                //  localStorage.setItem('message', res.data.message);
+                  
+              //     router.push('/otppage/otpPage')
+                  
+              //   });
+              // }catch(err) {
+              //   console.log(errors)
+              // }
               
 
-                try{
-                  const mobile = {
-                    mobile : data.mobile,
-                    client_id : 6,
-                    device_id : '3d0cd218875efb07h',
-                    device_type : 'ios',
-                    firebase_token : 'vvvvvvv', }
-                    console.log(mobile);
-                    localStorage.setItem('mobile', data.mobile);
-                  axiosInstance.post('/login', mobile ).then((res) => {
-                    
-                    console.log(res.data);
-                    localStorage.setItem('userid', res.data.user_id)
-                   localStorage.setItem('message', res.data.message);
-                    
-                    router.push('/otppage/otpPage')
-                    
-                  });
+             
+             
                 
-                
-                }catch(err) {
-                  console.log(errors)
-                }
                
                 
             })}
@@ -111,5 +142,3 @@ const router = useRouter()
 }
 
 export default Signin
-
-

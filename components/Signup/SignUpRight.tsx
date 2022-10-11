@@ -5,8 +5,8 @@ import { useRouter } from 'next/router';
 import axios from 'axios';
 import axiosInstance from '../Axios/AxiosIntercept';
 import { useState, useEffect } from 'react'
-
-
+import { ISegment } from './ts';
+import { useMutation, useQuery } from 'react-query'
 
 
 
@@ -33,15 +33,26 @@ type FormValues = {
 
 
 function SignUpRight({heading} :SignUpRightProps) {
-  const [course, setCourse] = useState<any[]>([]);
+  
+  const [course, setCourse] = useState<ISegment>([]);
+    // useEffect(() => {
+      
+    // axiosInstance.get('/segments').then((res) => {
+      
+    //   console.log(res.data);
+    //   setCourse(res.data);
+    // })
 
-    useEffect(() => {
-    axiosInstance.get('/segments').then((res) => {
-      console.log(res.data);
-      setCourse(res.data);
-    })
+    // },[])
 
-    },[])
+    const getSegments = () => {
+      axiosInstance.get('/segments').then((res) => {
+        console.log(res.data)
+        setCourse(res.data)
+      })
+    }
+
+    const {data} = useQuery('segments',getSegments)
 
   
   const schema = object({
@@ -70,33 +81,46 @@ if (typeof window !== 'undefined') {
 
  const [isLoading, setIsLoading] = useState(false)
 
+ const mutation = useMutation(details => {
+  return(
+    axiosInstance.post('/users', details ).then((res) => {
+      console.log(res)
+      console.log(res.data.message);
+      if(res.data.message==="Details Stored Successfully"){
+        router.push('/EduApp/eduApp')
+      }
+    }
+      ))}) 
+
   return ( 
     <div className='pl-[15%] pt-[4%] md:mr-[5%] md:pt-[2%] md:pr-[20%] md:pb-5 md:pl-[50%] md:mb-10   lg:pl-[38%] lg:pr-[32%] lg:pt-[19%] lg:pb-[10%] lg:mb-7 lg:flex lg:flex-1 lg:mt-10  '>
         <form onSubmit={handleSubmit((data) => {
               setIsLoading(true)
               console.log('data', data);
-              const details = {
+              const details:any = {
                 name : data.studentName,
                 email : data.studentEmail,
                 default_segment_id : data.default_segment_id,
                 collage : 'cas',
                 profile_picture : 'profile_picture/1654246701dd1d11dcaca18ccc8f329b8a5dd5aa67.jpeg',
                 address : 'address',
-                dob : '1998/05/25',
-                
+                dob : '1998/05/25', 
               }
-              console.log(details);
-              try{
+              mutation.mutate(details)
+              {mutation.isSuccess? router.push('/EduApp/eduApp') : 'FAIL' }
+              // console.log(details);
+              // try{
                 
-                axiosInstance.post('/users', details ).then((res) => {
-                  console.log(res);
+              //   axiosInstance.post('/users', details ).then((res) => {
+              //     console.log(res);
                  
-                });
-                router.push('/EduApp/eduApp')
+              //   });
                 
-              }catch(err) {
-                console.log('error')
-              }
+              //   router.push('/EduApp/eduApp')
+                
+              // }catch(err) {
+              //   console.log('error')
+              // }
               
             
 
@@ -121,13 +145,14 @@ if (typeof window !== 'undefined') {
                 
              {course.map((obj) => {
               
-               return(     <li>
+               return(
+                     <li>
                   
                     <input {...register("default_segment_id",
                  {required: true })}
                     
                     type="radio" id="hosting-small" 
-                     value="plus-one" 
+                     value={`${obj.id}`} 
                     className="hidden peer"
                      >
 
@@ -159,7 +184,13 @@ if (typeof window !== 'undefined') {
             {isLoading? '...Signing Up' : 'Signup'}</button>
             
      
-            <h3 className='flex flex-1 justify-start text-[16px] font-mont-bold font-semibold md:font-mont-bold md:pt-[5%] md:pl-[4%] md:font-semibold lg:font-semibold lg:flex lg:text-lg md:text-sm pl-[10%]  lg:font-mont-bold pt-2 lg:pl-[25%]'>Already have an account? <span className='text-greenBG text-[16px] ml-2'> Login </span></h3>
+            <h3 className='flex flex-1 justify-start text-[16px] font-mont-bold font-semibold md:font-mont-bold md:pt-[5%] md:pl-[4%] md:font-semibold lg:font-semibold lg:flex lg:text-lg md:text-sm pl-[10%]  lg:font-mont-bold pt-2 lg:pl-[25%]'>
+              Already have an account? 
+              <span className='text-greenBG text-[16px] ml-2 cursor-pointer' onClick={()=>{
+                router.push('/login/loginPage');
+              }}> 
+              Login </span>
+              </h3>
            </div>
           
         </form>      
