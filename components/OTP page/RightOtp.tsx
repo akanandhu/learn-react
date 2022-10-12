@@ -12,7 +12,7 @@ import { useRouter } from 'next/router'
 import { useMutation } from 'react-query';
 import { useLoginMutate } from '../Login/LoginMutate';
 import { useOTPMutation } from './OTPMutate';
-// import { OTPMutate } from './OTPMutate';
+
 
 interface IFormInput {
   otp : string,

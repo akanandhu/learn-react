@@ -11,12 +11,16 @@ import router, { useRouter } from "next/router";
         localStorage.setItem('userid',res.data.user_id)
         localStorage.setItem('message', res.data.message);
         
-        router.push('/otppage/otpPage')}
+        }
         
     )
     )
   }
 
 export const useLoginMutate = () => {
-  return useMutation(loginMutation)
+  return useMutation(loginMutation,{
+    onSuccess: () => {
+      router.push('/otppage/otpPage')
+    }
+  })
 }

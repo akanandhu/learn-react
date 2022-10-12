@@ -84,16 +84,6 @@ if (typeof window !== 'undefined') {
 
  const [isLoading, setIsLoading] = useState(false)
 
-//  const mutation = useMutation(details => {
-//   return(
-//     axiosInstance.post('/users', details ).then((res) => {
-//       console.log(res)
-//       console.log(res.data.message);
-//       if(res.data.message==="Details Stored Successfully"){
-//         router.push('/EduApp/eduApp')
-//       }
-//     }
-//       ))}) 
 
 const { mutate:signUpMutate } = useSignUpMutate()
 
