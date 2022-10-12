@@ -34,7 +34,9 @@ type FormValues = {
 
 function SignUpRight({heading} :SignUpRightProps) {
   
-  const [course, setCourse] = useState<ISegment>([]);
+  const [course, setCourse] = useState<ISegment[]>([]);
+
+
     // useEffect(() => {
       
     // axiosInstance.get('/segments').then((res) => {
@@ -146,7 +148,7 @@ if (typeof window !== 'undefined') {
              {course.map((obj) => {
               
                return(
-                     <li>
+                     <li key={obj.id}>
                   
                     <input {...register("default_segment_id",
                  {required: true })}

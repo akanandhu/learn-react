@@ -16,3 +16,7 @@ import router, { useRouter } from "next/router";
     )
     )
   }
+
+export const useLoginMutate = () => {
+  return useMutation(loginMutation)
+}

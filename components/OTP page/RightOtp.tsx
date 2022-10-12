@@ -10,7 +10,9 @@ import { object, string } from 'yup';
 import axiosInstance from '../Axios/AxiosIntercept';
 import { useRouter } from 'next/router'
 import { useMutation } from 'react-query';
-import { loginMutation } from '../Login/LoginMutate';
+import { useLoginMutate } from '../Login/LoginMutate';
+import { useOTPMutation } from './OTPMutate';
+// import { OTPMutate } from './OTPMutate';
 
 interface IFormInput {
   otp : string,
@@ -48,6 +50,10 @@ const { control, handleSubmit,formState: {errors} } = useForm({
 console.log(errors);
 const router = useRouter()
 
+  // const mutationOTP = useMutation(OTPMutate)
+ 
+  const { mutate: addOtp } =  useOTPMutation()
+
   const onSubmit: SubmitHandler<any> = (data) => {
 
     console.log(data.otpNum);
@@ -55,23 +61,11 @@ const router = useRouter()
       client_id: 6,
       otp : data.otpNum,
     }
-
-    const mutation = useMutation(otpDetail=> {
-      
-      const userid = localStorage.getItem('userid');
-      return( axiosInstance.post(`/auth/verify-otp/${userid}`,otpDetail).then((res) => {
-        console.log(res);
-      
-        localStorage.setItem('userid',res.data.user_id)
-        localStorage.setItem('message', res.data.message);
-        
-       
-        
-      })
+    addOtp(otpDetail);
+    // mutationOTP.mutate(otpDetail);
     
-      )
-    })
-    mutation.mutate(otpDetail);
+
+    
 
   //   try{
   //     if (typeof window !== 'undefined') {
@@ -108,7 +102,7 @@ const router = useRouter()
   }
 
 
-  const mutation = useMutation(loginMutation)
+  const { mutate: sendMobile } = useLoginMutate()
 
   const toastResent = () => {
     const phoneNumber = localStorage.getItem('mobile');
@@ -118,7 +112,11 @@ const router = useRouter()
       device_id : '3d0cd218875efb07h',
       device_type : 'ios',
       firebase_token : 'vvvvvvv', }
-    mutation.mutate(mobile);
+      sendMobile(mobile);
+
+
+
+    // mutation.mutate(mobile);
     
     // try{
     //   setIsLoading(false)
