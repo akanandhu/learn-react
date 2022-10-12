@@ -7,6 +7,7 @@ import axiosInstance from '../Axios/AxiosIntercept';
 import { useState, useEffect } from 'react'
 import { ISegment } from './ts';
 import { useMutation, useQuery } from 'react-query'
+import { useSignUpMutate } from './SignupMutate';
 
 
 
@@ -83,16 +84,18 @@ if (typeof window !== 'undefined') {
 
  const [isLoading, setIsLoading] = useState(false)
 
- const mutation = useMutation(details => {
-  return(
-    axiosInstance.post('/users', details ).then((res) => {
-      console.log(res)
-      console.log(res.data.message);
-      if(res.data.message==="Details Stored Successfully"){
-        router.push('/EduApp/eduApp')
-      }
-    }
-      ))}) 
+//  const mutation = useMutation(details => {
+//   return(
+//     axiosInstance.post('/users', details ).then((res) => {
+//       console.log(res)
+//       console.log(res.data.message);
+//       if(res.data.message==="Details Stored Successfully"){
+//         router.push('/EduApp/eduApp')
+//       }
+//     }
+//       ))}) 
+
+const { mutate:signUpMutate } = useSignUpMutate()
 
   return ( 
     <div className='pl-[15%] pt-[4%] md:mr-[5%] md:pt-[2%] md:pr-[20%] md:pb-5 md:pl-[50%] md:mb-10   lg:pl-[38%] lg:pr-[32%] lg:pt-[19%] lg:pb-[10%] lg:mb-7 lg:flex lg:flex-1 lg:mt-10  '>
@@ -108,8 +111,11 @@ if (typeof window !== 'undefined') {
                 address : 'address',
                 dob : '1998/05/25', 
               }
-              mutation.mutate(details)
-              {mutation.isSuccess? router.push('/EduApp/eduApp') : 'FAIL' }
+              signUpMutate(details);
+
+
+              // mutation.mutate(details)
+              // {mutation.isSuccess? router.push('/EduApp/eduApp') : 'FAIL' }
               // console.log(details);
               // try{
                 
