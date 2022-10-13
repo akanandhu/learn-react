@@ -13,7 +13,6 @@ import { useSignUpMutate } from './SignupMutate';
 
 
 
-
 type SignUpRightProps = {
   heading : 'Signup',
   

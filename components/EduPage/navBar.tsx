@@ -13,7 +13,7 @@ function NavBar() {
   return (
     <div className='w-[100%]'>
         <div className='lg:pl-[10%] lg:pt-[10%] lg:pr-[10%]  md:pl-32 md:pt-5 md:flex md:justify-center pl-10  pt-10 flex justify-start pb-10  '>
-        <Image src={logo} width={123} height={70}  />
+        <Image src={logo} alt='logo' width={123} height={70}  />
         </div>
         <div className='lg:h-[95%] lg:w-[100%] lg:pt-7  '>
         <div className='lg:h-[350px] lg:w-[100%]  lg:leading-[15px]  lg:grid grid-flow-row lg:justify-end lg:align-middle lg:gap-5 lg:pl-8 md:flex md:flex-row flex flex-row justify-center '>

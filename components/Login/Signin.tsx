@@ -28,6 +28,7 @@ function Signin({text,label,placeholder} :SigninProps) {
 
   const schema = object({
     mobile : string().required('Mobile Number is Required')
+   
     .max(10,"maximum is 10")
     .min(10,"minimum 10 digits required")
     

@@ -32,6 +32,7 @@ type RightOtpProps = {
 function RightOtp({mobile,time,reset, login}: RightOtpProps) {
 
   const [isLoading, setIsLoading] = useState(false);
+
   const toastSuccess = () => {
     setIsLoading(true)
     toast.success('Successfully Verified OTP')
@@ -173,12 +174,6 @@ type mobileNumberProps ={
       const mobileNumber =  localStorage.getItem('mobile') 
     }
   }
-  
- 
-  
-
-  
-  
   
   
   return (

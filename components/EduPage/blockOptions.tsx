@@ -18,7 +18,7 @@ export const BlockOption = ({tag,icon,tagStyles,whiteStyles,mainBlockStyles}: Bl
     <div className={mainBlockStyles}>
        
             <div className='z-10 pt-4  '>
-                <Image src={icon} height={40} width={90} className='object-none' />
+                <Image src={icon} alt='icon' height={40} width={90} className='object-none' />
             </div>
             <div className={tagStyles}>
                 <h1 className='lg:pt-1'>{tag}</h1>
