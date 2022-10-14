@@ -1,11 +1,10 @@
-import { Fragment, useState } from 'react'
+import { Fragment, useEffect, useState } from 'react'
 import { Listbox, Transition } from '@headlessui/react'
 import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid'
 import { useQuery } from 'react-query'
 import axiosInstance from '../../Axios/AxiosIntercept'
 import { ISegment } from './segment'
-import axios from 'axios'
-import { Carousel } from 'react-responsive-carousel'
+
 
 
 export default function Example() {
@@ -24,52 +23,34 @@ export default function Example() {
       
     
 
-      const [state, setState] = useState<ISegment>()
-
+      const [state, setState] = useState<any | ISegment>()
+        
       const userDefaultData = () => {
         const user_id = localStorage.getItem('sub-id')
         axiosInstance.get(`/segments/${user_id}`).then((res) => {
           console.log('Res',res.data)
-           setState(res.data.name)
-           
-           
+             setState(res.data);           
         })
       }
-      const {data:any} =  useQuery<any>('defaultSubject',userDefaultData,{
-        select: (data) => {
-          const defaultData =  data?.data.map((obj:any) => obj.name)
-          return defaultData; 
-          
-          
-        }
-       })
-       
-
-       
-        
+      const {data:any} =  useQuery<any>('defaultSubject',userDefaultData)
       
       
 
+      const [selected, setSelected] = useState<ISegment>(segment);
       
-      const [selected, setSelected] = useState<ISegment[]>(segment);
       //API CALL to get User Data
       const userLogData = () => {
         axiosInstance.get(`/auth/me`).then((res) => {
-          // console.log(res.data);
+          console.log("ResponseData",res.data);
           localStorage.setItem('sub-id',res.data.user_profile.default_segment_id);
           
         })
       }
-      
       useQuery(['userLogData'], userLogData)
-      
-      
-      
-     
-      
 
-     
-  
+      
+      
+   
   return (
     <div className=" absolute z-20 pt-[1.5%] pl-[2%] w-72">
       <Listbox value={selected} onChange={setSelected}>

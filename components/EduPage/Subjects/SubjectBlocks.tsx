@@ -19,12 +19,13 @@ type subjectCardProps = {
 const SubjectCard = ({subject,ChapeterNum,icon,boxClassName}:subjectCardProps) => {
 
     return(
-        <div className='lg:grid md:grid grid justify-center '>
+        <div className='lg:grid md:grid grid justify-content '>
             
-            <div className={boxClassName}>
-                <Image src={icon} alt='subject' width={63} height={63} className=" lg:object-none md:object-none object-none" />
+            <div className={boxClassName} >
+                
+                <Image src={icon?icon : ''} alt='subject' width={125} height={125} className=" md:rounded-[16%] object-fill" />
              </div>
-            <div className='lg:pt-5 lg:grid lg:grid-row lg:align-middle lg:pl-[14%]  lg:gap-1 lg:justify-center md:justify-center justify-center
+            <div className='lg:pt-5 lg:grid lg:grid-row lg:align-middle lg:pl-[15%]  lg:gap-1  justify-start
             md:pt-5 md:grid md:grid-row md:align-middle md:pl-[14%]  md:gap-1
             pt-5 grid grid-row align-middle pl-[0%]  gap-1'>
             <h1 className='lg:text-xl lg:font-semibold lg:text-bold lg:pl-0
@@ -43,29 +44,21 @@ const SubjectCard = ({subject,ChapeterNum,icon,boxClassName}:subjectCardProps) =
     }
     
 function SubjectBlocks() {
-
     
-   const useFetchClassData = () => {
-    
-   const classCode = localStorage.getItem('class-State')
-    axiosInstance.get(`/home/courses?segment_id=${classCode}`).then((res) => {
-        console.log('Response', res.data);
+    const FetchClassData = async () => {
        
-       
-    })} 
-
-    const {data:classVideo} = useQuery<any>('Classdata',useFetchClassData,{
-       staleTime: 3000,
-        refetchInterval: 2000,
-        // select: (data) => {
-        //         const chapterNames = data.data.map((obj:any) => obj.name )
-        //         return chapterNames;
-                
-        //     }
-    })
-    {
+            const classCode = localStorage.getItem('class-State')
+      
+        const { data } = await axiosInstance.get(`/home/courses?segment_id=${classCode}`);
+        console.log(data,'Data');
+        return data;
         
-    }
+     };
+     
+    const {data:classVideo} = useQuery<any>(['Classdata'],FetchClassData)
+    
+        
+    
 
   return (
     <div className='lg:w-[80%] lg:h-full lg:pl-20 md:w-[100%] md:h-full md:pl-20 w-[100%] h-full pl-20'>
@@ -79,12 +72,12 @@ function SubjectBlocks() {
         <div className='lg:grid lg:grid-flow-col lg:grid-cols-[1fr_1fr_1fr_1fr_1fr] lg:grid-rows-[1fr] lg:justify-start lg:pt-8 lg:gap-10 
         md:flex md:flex-row md:justify-start md:pt-8 md:gap-10
         flex flex-col justify-start pt-8 gap-10'>
-        {classVideo?.classVideo.map((obj:any) => {
+        {classVideo?.data.map((obj:any) => {
             
             return(
-            <div key={obj.name}>
+            <div key={obj.id}>
             
-            <SubjectCard boxClassName={'lg:h-[125px] lg:w-[125px] lg:rounded-[18%] lg:grid lg:justify-center lg:bg-gradient-to-r from-[#F85750] to-[#A73F3A] md:h-[120px] md:w-[120px] md:rounded-[20%] md:grid  md:justify-center md:bg-gradient-to-r from-[#F85750] to-[#A73F3A] h-[300px] w-[300px] rounded-[20%] grid  justify-center bg-gradient-to-r from-[#F85750] to-[#A73F3A]'
+            <SubjectCard boxClassName={'lg:h-[125px] lg:w-[125px] lg:rounded-[18%] lg:grid lg:justify-center lg:bg-gradient-to-r from-[#F85750] to-[#A73F3A] md:h-[120px] md:w-[120px] md:rounded-[20%] md:grid  md:justify-center md:bg-gradient-to-r from-[#F85750] to-[#A73F3A] h-[300px] w-[300px] rounded-[20%] flex justify-center bg-gradient-to-r from-[#F85750] to-[#A73F3A]'
             }
              icon={obj.thumbnail}
              subject={obj.name} 

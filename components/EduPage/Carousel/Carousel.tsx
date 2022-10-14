@@ -8,17 +8,21 @@ import yellow from 'public/images/yellow.png'
 import Image from 'next/image';
 import { useQuery } from 'react-query';
 import axiosInstance from '../../Axios/AxiosIntercept';
+import { IBanners } from './CarouselJson';
 
 
 
 
 const CarouselPro = () => {
-  const fetchBanner = () => {
-    // axiosInstance.get('/banners/7').then((res) => {
-      // console.log('Banner',res.data);
-    // })
-  }
- const {data:banner} = useQuery('banner',fetchBanner)
+  const fetchBanner = async () => {
+    const classSelect = localStorage.getItem('class-State')
+    const { data } = await axiosInstance.get(`/banners/${classSelect}`);
+      console.log(data,'Banner');
+      return data;
+  };
+ const {data:banner} = useQuery<any | IBanners >(['banner'],fetchBanner)
+ 
+
   return (
     <div className=' lg:pl-20 lg:pt-20 lg:pr-0 lg:pb-20 lg:flex lg:justify-center 
     md:pl-20 md:pt-20 md:pr-0 md:pb-20 md:flex md:justify-center
@@ -26,17 +30,24 @@ const CarouselPro = () => {
 
        
         <Carousel showArrows={false} showStatus={false} showThumbs={false} width='75%' autoPlay={true} infiniteLoop  dynamicHeight={true}>
-                <div>
-                    <Image src={yellow} alt='yellow' className="object-center" />
-                </div>
-                <div>
-                    <Image src={pink}  alt='pink' />
-                    
-                </div>
-                <div>
+              {/* {banner?.data.map((obj:any) => {
+                return(
+                <div key={obj.id}>
+                <Image src={yellow} alt='yellow' className="object-center" />
+                </div> 
+                );
+              }) 
+                
+              } */}
+               
+           
+                
+                
+                {/* <div>
                     <Image src={orange}  alt='orange' />
                     
-                </div>
+                </div> */}
+                
             </Carousel>
       
     </div>

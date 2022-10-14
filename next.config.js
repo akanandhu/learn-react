@@ -4,4 +4,11 @@ const nextConfig = {
   swcMinify: true,
 }
 
-module.exports = nextConfig
+module.exports = {
+  
+  images: {
+    domains: ['api.elearning.alpha.logidots.com','e-learning-test.s3.ap-south-1.amazonaws.com'],
+    
+  },
+  
+}
