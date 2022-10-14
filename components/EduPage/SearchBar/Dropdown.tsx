@@ -9,13 +9,11 @@ import { ISegment } from './segment'
 
 export default function Example() {
     //API CALL to Display Segment Data
-    const [segment, setSegment] = useState<ISegment[]>([])
-    const getSegments = () => {
-        axiosInstance.get('/segments').then((res) => {
-            console.log(res.data);
-            setSegment(res.data);
-            
-        })
+    const [segment, setSegment] =  useState<ISegment[]>([])
+    const getSegments = async () => {
+      const {data} =  await  axiosInstance.get('/segments')
+      return data;
+      
       }
 
       const {data:segmentData} =  useQuery(['segments'],getSegments)
@@ -39,14 +37,14 @@ export default function Example() {
       const [selected, setSelected] = useState<ISegment>(segment);
       
       //API CALL to get User Data
-      const userLogData = () => {
-        axiosInstance.get(`/auth/me`).then((res) => {
+      const userLogData = async () => {
+          await axiosInstance.get(`/auth/me`).then((res) => {
           console.log("ResponseData",res.data);
-          localStorage.setItem('sub-id',res.data.user_profile.default_segment_id);
-          
+         const result =  localStorage.setItem('sub-id',res.data.user_profile.default_segment_id);
+          console.log(result);
         })
       }
-      useQuery(['userLogData'], userLogData)
+     const {data:userLogDetail} =  useQuery(['userLogData'], userLogData)
 
       
       
@@ -72,7 +70,7 @@ export default function Example() {
             leaveTo="opacity-0"
           >
             <Listbox.Options className="absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
-              {segment?.map((obj:any) => (
+              {segmentData?.map((obj:any) => (
                 
                 <Listbox.Option onClick={()=> {
                   console.log(obj.id);
