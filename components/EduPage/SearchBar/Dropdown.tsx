@@ -5,6 +5,7 @@ import { useQuery } from 'react-query'
 import axiosInstance from '../../Axios/AxiosIntercept'
 import { ISegment } from './segment'
 import axios from 'axios'
+import { Carousel } from 'react-responsive-carousel'
 
 
 export default function Example() {
@@ -17,29 +18,57 @@ export default function Example() {
             
         })
       }
-       useQuery(['segments'],getSegments)
+
+      const {data:segmentData} =  useQuery(['segments'],getSegments)
+
+      
     
-      const [selected, setSelected] = useState<ISegment[]>(segment);
-      
-      //API CALL to get User Data
-      const userLogData = () => {
-        axiosInstance.get(`/auth/me`).then((res) => {
-          console.log(res.data);
-          localStorage.setItem('sub-id',res.data.user_profile.default_segment_id);
-        })
-      }
-      useQuery(['userLogData'], userLogData)
-      
-      
+
       const [state, setState] = useState<ISegment>()
+
       const userDefaultData = () => {
         const user_id = localStorage.getItem('sub-id')
         axiosInstance.get(`/segments/${user_id}`).then((res) => {
-          console.log(res.data.name)
+          console.log('Res',res.data)
            setState(res.data.name)
+           
+           
         })
       }
-      useQuery('defaultSubject',userDefaultData )
+      const {data:any} =  useQuery<any>('defaultSubject',userDefaultData,{
+        select: (data) => {
+          const defaultData =  data?.data.map((obj:any) => obj.name)
+          return defaultData; 
+          
+          
+        }
+       })
+       
+
+       
+        
+      
+      
+
+      
+      const [selected, setSelected] = useState<ISegment[]>(segment);
+      //API CALL to get User Data
+      const userLogData = () => {
+        axiosInstance.get(`/auth/me`).then((res) => {
+          // console.log(res.data);
+          localStorage.setItem('sub-id',res.data.user_profile.default_segment_id);
+          
+        })
+      }
+      
+      useQuery(['userLogData'], userLogData)
+      
+      
+      
+     
+      
+
+     
   
   return (
     <div className=" absolute z-20 pt-[1.5%] pl-[2%] w-72">
@@ -64,7 +93,10 @@ export default function Example() {
             <Listbox.Options className="absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
               {segment?.map((obj:any) => (
                 
-                <Listbox.Option
+                <Listbox.Option onClick={()=> {
+                  console.log(obj.id);
+                  localStorage.setItem('class-State', obj.id);
+                }}
                   key={obj.id}
                   className={({ active }) =>
                     `relative cursor-default select-none py-2 pl-10 pr-4 ${
@@ -85,6 +117,8 @@ export default function Example() {
                       {selected ? (
                         <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-amber-600">
                           <CheckIcon className="h-5 w-5" aria-hidden="true" />
+                          
+
                         </span>
                       ) : null}
                     </>

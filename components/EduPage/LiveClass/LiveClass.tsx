@@ -24,14 +24,14 @@ const VideoBox = ({subject,time,speaker,Starttime,attendance}: VideoBoxProps) =>
                 <div className='lg:relative md:relative md:flex flex relative   '>
                     
                     <div className='  lg:min-w-[528px] lg:max-w-[12%] md:min-w-[528px] md:max-w-[12%] min-w-[528px] max-w-[12%] '>
-                    <Image src={greenRect} className=' object-fill ' /> 
+                    <Image src={greenRect} alt='greenrectangle' className=' object-fill ' /> 
                     </div>
                     <div className='lg:absolute lg:flex lg:left-0 lg:bottom-0 md:absolute md:flex md:left-0 md:bottom-0 absolute flex left-0 bottom-0'>
                         <div>
-                            <Image src={model} className=' object-scale-down' />
+                            <Image src={model} alt='model' className=' object-scale-down' />
                          </div>
                          <div className='lg:abosolute lg:flex lg:pl-20 lg:pt-8 lg:abosolute md:flex md:pl-20 md:pt-8 flex pl-20 pt-8 '>
-                        <Image src={detail} className='object-scale-down' />
+                        <Image src={detail} alt='detail' className='object-scale-down' />
                     </div>
                     
                          <div className='lg:absolute lg:z-10 lg:left-10 lg:right-0 
@@ -90,7 +90,7 @@ const VideoBox = ({subject,time,speaker,Starttime,attendance}: VideoBoxProps) =>
                     <div className=' lg:flex lg:gap-3 lg:align-middle lg:font-medium lg:text-livetext
                      md:flex md:gap-3 md:align-middle md:font-medium md:text-livetext
                      flex gap-3 align-middle font-medium text-livetext'>
-                        <Image src={star} width={23} height={23} className='lg:object-none md:object-none' />
+                        <Image src={star} alt='star' width={23} height={23} className='lg:object-none md:object-none' />
                         <h1>Master Class </h1>
                     </div>
                 </div>
@@ -110,7 +110,7 @@ function LiveClass() {
         pb-14 h-[28px]'>
             <h1 className='lg:font-[`Montserrat_Regular`] lg:font-semibold lg:text-4xl lg:align-middle
             md:font-[`Montserrat_Regular`] md:font-semibold md:text-4xl md:align-middle
-            font-[`Montserrat_Regular`] font-semibold text-4xl align-middle'> <span className=' text-eduGreen'> Learn</span> with Video Classes</h1>
+            font-[`Montserrat_Regular`] font-semibold text-4xl align-middle'> <span className=' text-eduGreen'> Learn</span> with Live Classes</h1>
         </div>    
         <div className='lg:grid lg:grid-flow-col lg:grid-cols-[1fr_1fr] lg:justify-start lg:pt-8 lg:gap-10
         md:grid md:grid-flow-col md:grid-cols-[1fr_1fr] md:justify-start md:lg:pt-8 md:gap-10

@@ -14,7 +14,7 @@ function eduApp() {
         <SearchBar />
         <div className=' min-w-[1200px] bg-bodyShade'>
           <div className='flex'>
-        <CarouselBody />
+        <CarouselBody  />
         </div>
         <SubjectBlocks />
         <LiveClass />
