@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useForm } from 'react-hook-form';
 import {string,number,object } from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup';
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import { useRouter } from 'next/router'
 import { useMutation} from 'react-query'
 import axiosInstance from '../Axios/AxiosIntercept';
@@ -72,7 +72,7 @@ const router = useRouter()
 
 const mutation = useMutation(mobile=> {
   return( axiosInstance.post('/auth/login',mobile).then((res) => {
-    console.log(res);
+    console.log(res,'LoginPost');
     localStorage.setItem('userid',res.data.user_id)
     localStorage.setItem('message', res.data.message);
     
@@ -83,6 +83,26 @@ const mutation = useMutation(mobile=> {
   )
 })
 
+const target = useRef<any>(null);
+const [state, setState] = useState<any>()
+const handleUploader = (e:any) => {
+  setState(e.target.files[0])
+  console.log(e.target.files);
+}
+const handleAPI =  () => {
+  target.current.click()
+  
+   
+  
+}
+// const callAPI = () => {
+//   const fd = new FormData()
+//    fd.append('image', state);
+//    axiosInstance.post('/auth/login', fd).then((res) => {
+//     console.log(res,"Uploaded");
+//   })
+// }
+
   return (
     
     <div className=' h-[70%] w-[100%] mb-0 gap-5 flex-row flex justify-center md:flex md:justify-center md:pt-[0%] md:pr-[13%] md:pl-[8%] lg:flex lg:flex-row lg:justify-center lg:pt-[25%] lg:pr-[26%] lg:pl-[16%]'>
@@ -90,7 +110,15 @@ const mutation = useMutation(mobile=> {
             <h1 className="  md:mb-8 lg:mb-8 md:text-[3vw] lg:text-[2vw] lg:pl-[16%] text-[5vw] font-semibold  ">{text}</h1>
             <input {...register('mobile', { valueAsNumber:true }) }  type='number' placeholder={placeholder} className={` md:mb-8 bg-boxBG h-[60px] mb-4 rounded-lg pl-3 w-[95%] placeholder:text-sm placeholder:pl-0 placeholder:text-placeText placeholder:font-semibold  placeholder:pb-10 border border-solid   `}></input>
             {errors.mobile?.message && <p className='text-red-500 text-sm p-2'>{errors.mobile?.message}</p>}
+
+            <button type='button' className="  focus:bg-green-400 md:mb-8 bg-loginbutton text-white rounded-lg h-[55px] w-[95%] lg:font-['Montserrat_Regular'] md:font-[`Montserrat_Regular`] font-['Montserrat_Regular'] font-semibold "
+             onClick={handleAPI}   >Image Upload</button>
+            <button type='button'  >Upload</button>
+            <input ref={target} type='file' accept='.jpg, .png, .pdf'  onChange={(e) => handleUploader(e)}  className="hidden  " />
             
+
+
+
             <button onClick={handleSubmit((data: { mobile: any; }) => {
 
               setIsLoading(false)
@@ -135,6 +163,8 @@ const mutation = useMutation(mobile=> {
              className= " focus:cursor-not-allowed focus:bg-gray-400 md:mb-8 bg-loginbutton text-white rounded-lg h-[55px] w-[95%] lg:font-['Montserrat_Regular'] md:font-['Montserrat_Regular'] font-['Montserrat_Regular'] font-semibold " >
               {isLoading? 'Login' : '...Loading'}
               </button>
+
+             
        
         </div>
       

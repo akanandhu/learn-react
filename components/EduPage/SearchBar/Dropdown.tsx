@@ -16,37 +16,56 @@ export default function Example() {
       
       }
 
-      const {data:segmentData} =  useQuery(['segments'],getSegments)
+      const {data:segmentData} =  useQuery<any>(['segments'],getSegments)
 
+      const [selected, setSelected] = useState<ISegment>({} as ISegment);
+
+      console.log(selected, "Select data");
+      const [Default, setDefault] = useState([])
+      useEffect(() => {
+        if (typeof window !== 'undefined') {
+          const subjectID =  localStorage.getItem('class-State');
+
+        console.log("segmentdata", segmentData);
+        console.log(subjectID, "current Class ID");
+       const result = segmentData?.find((obj:any) => obj.id===Number(subjectID)  )
+       
+          console.log(result, 'Result')
+          setSelected(result)
+       }
+      
+      }, [segmentData])
+      
+    //   if (typeof window !== 'undefined') {
+    //     const subjectID =  localStorage.getItem('sub-id');
+    //     segmentData.map((obj:any) => {
+    //       if(obj.id===subjectID) {
+    //         console.log('Subject: ',obj.name);
+    //       }
+    //   })
+
+    //  }
+      
+     
       
     
 
-      const [state, setState] = useState<any | ISegment>()
+      // const [state, setState] = useState<any | ISegment>()
         
       const userDefaultData = () => {
         const user_id = localStorage.getItem('sub-id')
         axiosInstance.get(`/segments/${user_id}`).then((res) => {
           console.log('Res',res.data)
-             setState(res.data);           
+            //  setState(res.data);           
         })
       }
       const {data:any} =  useQuery<any>('defaultSubject',userDefaultData)
       
       
 
-      const [selected, setSelected] = useState<ISegment>(segment);
       
-      //API CALL to get User Data
-      const userLogData = async () => {
-          await axiosInstance.get(`/auth/me`).then((res) => {
-          console.log("ResponseData",res.data);
-         const result =  localStorage.setItem('sub-id',res.data.user_profile.default_segment_id);
-          console.log(result);
-        })
-      }
-     const {data:userLogDetail} =  useQuery(['userLogData'], userLogData)
-
       
+     
       
    
   return (
@@ -54,7 +73,7 @@ export default function Example() {
       <Listbox value={selected} onChange={setSelected}>
         <div className="relative mt-1">
           <Listbox.Button   className="relative w-full cursor-default rounded-lg bg-white py-2 pl-3 pr-10 text-left shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm">
-            <span  className="block truncate">{selected ? selected.name: {state} }</span>
+            <span  className="block truncate">{selected ? selected.name: '' }</span>
             
             <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
               <ChevronUpDownIcon

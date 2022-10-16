@@ -91,6 +91,7 @@ const { mutate:signUpMutate } = useSignUpMutate()
         <form onSubmit={handleSubmit((data) => {
               setIsLoading(true)
               console.log('data', data);
+              // localStorage.setItem('my-subject', data.default_segment_id)
               const details:any = {
                 name : data.studentName,
                 email : data.studentEmail,

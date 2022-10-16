@@ -8,6 +8,9 @@ import { useQuery } from 'react-query'
 import axiosInstance from '../../Axios/AxiosIntercept'
 import { IChapters } from './JsontoTS'
 import { render } from '@headlessui/react/dist/utils/render'
+import noclass from 'public/images/noclasses.png';
+
+
 type subjectCardProps = {
     subject : any,
     ChapeterNum : any,
@@ -53,12 +56,15 @@ function SubjectBlocks() {
         console.log(data,'Data');
         return data;
         
+        
      };
      
-    const {data:classVideo} = useQuery<any>(['Classdata'],FetchClassData)
-    
+    const {data:classVideo, isFetched} = useQuery<any>(['Classdata'],FetchClassData)
+    const images = {
+        thumbnail: 'https://cdn4.vectorstock.com/i/1000x1000/19/08/book-icon-white-on-the-blue-background-vector-3451908.jpg'
+    }
         
-    
+    // const result = classVideo.find((obj) => obj.id);
 
   return (
     <div className='lg:w-[80%] lg:h-full lg:pl-20 md:w-[100%] md:h-full md:pl-20 w-[100%] h-full pl-20'>
@@ -69,25 +75,43 @@ function SubjectBlocks() {
              <span className=' text-eduGreen'> Learn </span>  with Video Classes</h1>
         </div>    
         <div>
+        {/* {
+            isFetched && classVideo.data.length===0 && <Image src={noclass} alt='noclass' />
+        } */}
+            
         <div className='lg:grid lg:grid-flow-col lg:grid-cols-[1fr_1fr_1fr_1fr_1fr] lg:grid-rows-[1fr] lg:justify-start lg:pt-8 lg:gap-10 
         md:flex md:flex-row md:justify-start md:pt-8 md:gap-10
         flex flex-col justify-start pt-8 gap-10'>
-        {classVideo?.data.map((obj:any) => {
+
+        {
+        classVideo?.data.map((obj:any) => {
+            
             
             return(
+                
+            obj.name?
             <div key={obj.id}>
+            
             
             <SubjectCard boxClassName={'lg:h-[125px] lg:w-[125px] lg:rounded-[18%] lg:grid lg:justify-center lg:bg-gradient-to-r from-[#F85750] to-[#A73F3A] md:h-[120px] md:w-[120px] md:rounded-[20%] md:grid  md:justify-center md:bg-gradient-to-r from-[#F85750] to-[#A73F3A] h-[300px] w-[300px] rounded-[20%] flex justify-center bg-gradient-to-r from-[#F85750] to-[#A73F3A]'
             }
-             icon={obj.thumbnail}
+             icon={obj.thumbnail?obj.thumbnail: images.thumbnail}
              subject={obj.name} 
-             ChapeterNum={obj.chapters_count}   />
-            </div> 
+             ChapeterNum={obj.chapters_count}   /> 
+            
+                
+             
+             
+
+
+            </div>  : <div> <Image src={noclass} alt='noclass' /> </div>
+       
+
             );
         }) 
         }
         </div>
-        
+       
         </div>
         </div>
    
